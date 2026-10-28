@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Медиакит — Анастасия Реутова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#13233D;
+  --graphite:#3B3B38;
+  --muted:rgba(59,59,56,.6);
+  --panel:#F9F9F9;
+  --card:#F6F6F6;
+  --quote-card:#EDF4FF;
+  --accent:61,90,138;
+  --W:1920px;
+  --H:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{background:#9FA4AE}
+body{font-family:'Inter',sans-serif;color:var(--graphite);
+     display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0;
+     -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block}
+
+/* ── слайд ── */
+.slide-frame{overflow:hidden;flex-shrink:0;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+.slide{width:var(--W);height:var(--H);position:relative;overflow:hidden;
+       display:flex;flex-direction:column;transform-origin:top left;background:#fff}
+@media print{
+  html,body{background:#fff}
+  body{padding:0;gap:0}
+  .slide-frame{width:1920px!important;height:1080px!important;box-shadow:none;page-break-after:always}
+  .slide{transform:none!important}
+  @page{size:1920px 1080px;margin:0}
+}
+
+/* ── фоны ── */
+.bg-cover,.bg-dark,.bg-l1,.bg-l2,.bg-l3,.bg-l4{
+  background-size:cover!important;background-position:center!important}
+.bg-cover{background-image:url(backgrounds/bg-cover.png)}
+.bg-dark{background-image:url(backgrounds/bg-dark.png)}
+.bg-l1{background-image:url(backgrounds/bg-light-1.png)}
+.bg-l2{background-image:url(backgrounds/bg-light-2.png)}
+.bg-l3{background-image:url(backgrounds/bg-light-3.png)}
+.bg-l4{background-image:url(backgrounds/bg-light-4.png)}
+
+.pad{padding:72px 96px 68px 110px;display:flex;flex-direction:column;flex:1;min-height:0}
+
+/* ── типографика ── */
+.h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:74px;line-height:1;
+    text-transform:uppercase;color:var(--navy);margin-bottom:44px}
+.h1-alt{font-size:64px;margin-bottom:36px}
+.h1 .g{color:var(--graphite)}
+.h2{font-family:'Inter',sans-serif;font-weight:700;font-size:50px;line-height:1.1;color:var(--navy)}
+.h3{font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.2;color:var(--navy)}
+.body{font-size:32px;line-height:1.35}
+.small{font-size:24px;line-height:1.3}
+.label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;line-height:1.2;
+       letter-spacing:.02em;text-transform:uppercase;color:var(--navy)}
+li,.body,.small,.quote-text,.h3,.stat-lbl{text-wrap:pretty}
+strong{font-weight:700;color:var(--navy)}
+
+/* ── цифры ── */
+.big-n{font-family:'Montserrat',sans-serif;font-weight:800;font-size:74px;line-height:1;
+       color:var(--navy);white-space:nowrap}
+.stat-lbl{font-size:32px;line-height:1.25;margin-top:12px}
+
+/* ── списки ── */
+ul{list-style:none}
+ul.tri li,ul.sq li{position:relative;line-height:1.3}
+ul.tri li{padding-left:1.45em}
+ul.tri li::before{content:'';position:absolute;left:0;top:.38em;width:0;height:0;
+  border-top:.28em solid transparent;border-bottom:.28em solid transparent;
+  border-left:.48em solid var(--navy)}
+ul.sq li{padding-left:52px}
+ul.sq li::before{content:'';position:absolute;left:0;top:.3em;width:24px;height:24px;
+  border-radius:5px;background:var(--navy)}
+ul.w li::before{border-left-color:#fff}
+
+/* ── компоненты ── */
+.card{background:var(--card);border-radius:20px}
+.chip{background:var(--card);border-radius:12px;padding:24px 34px;font-size:30px;line-height:1.2}
+.pill{background:var(--navy);color:#fff;border-radius:14px;height:96px;padding:0 44px;
+      display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;
+      font-size:34px;white-space:nowrap}
+.quote-card{background:var(--quote-card);border-radius:20px;position:relative;overflow:hidden}
+.quote-card::before{content:'\201C';position:absolute;left:26px;top:-28px;
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:200px;line-height:1;
+  color:#D3E1F5}
+.quote-text{position:relative;font-size:30px;line-height:1.35;color:var(--graphite)}
+.photo{overflow:hidden;border-radius:20px;min-height:0}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* ── Тёмная тема слайда ── */
+.is-dark .h1,.is-dark .h2,.is-dark .h3{color:#fff}
+.is-dark .h1 .g{color:rgba(255,255,255,.55)}
+.is-dark strong{color:#fff}
+.is-dark .big-n{color:#fff}
+.is-dark .stat-lbl{color:rgba(255,255,255,.72)}
+.is-dark .quote-text{color:rgba(255,255,255,.85)}
+.is-dark li{color:rgba(255,255,255,.82)}
+.is-dark .body{color:rgba(255,255,255,.9)}
+.is-dark .small{color:rgba(255,255,255,.7)}
+.is-dark .label{color:rgba(255,255,255,.5)}
+.is-dark .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.is-dark .quote-card{background:rgba(255,255,255,.08)}
+.is-dark .quote-card::before{color:rgba(255,255,255,.1)}
+.is-dark .chip{background:#F6F6F6;color:#3B3B38}
+.is-dark .pill{background:#fff;color:#13233D}
+.is-dark ul.tri li::before{border-left-color:#fff}
+.is-dark ul.sq li::before{background:#fff}
+
+/* ── case-card ── */
+.case-card{background:#F6F6F6;border-radius:28px;padding:36px 40px;display:flex;flex-direction:column;gap:14px}
+.case-card.dark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.case-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:.1em;
+            text-transform:uppercase;color:rgba(19,35,61,.45);margin-bottom:4px}
+.case-label.white{color:rgba(255,255,255,.4)}
+.case-title{font-family:'Inter',sans-serif;font-weight:700;font-size:28px;line-height:1.2;color:#13233D}
+.case-title.white{color:#fff}
+.case-body{font-size:24px;line-height:1.4;color:#3B3B38}
+.case-body.white{color:rgba(255,255,255,.78)}
+
+/* ── expertise card ── */
+.exp-card{background:#F6F6F6;border-radius:20px;padding:28px 32px;display:flex;flex-direction:column;gap:10px}
+.exp-card.dark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.exp-title{font-family:'Inter',sans-serif;font-weight:700;font-size:26px;line-height:1.2;color:#13233D}
+.exp-title.white{color:#fff}
+.exp-pain{font-size:22px;line-height:1.35;color:rgba(59,59,56,.7);font-style:italic}
+.exp-pain.white{color:rgba(255,255,255,.55)}
+.exp-body{font-size:21px;line-height:1.35;color:#3B3B38}
+.exp-body.white{color:rgba(255,255,255,.75)}
+.result-tag{background:#13233D;color:#fff;border-radius:8px;padding:8px 18px;
+            font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;
+            letter-spacing:.02em;align-self:flex-start;margin-top:4px}
+.result-tag.accent{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ═════════ 1 · ОБЛОЖКА ═════════ -->
+<div class="slide-frame"><div class="slide bg-cover is-dark">
+
+  <!-- Слой 1: статусные фото Анастасии по бокам — производство/выставки, ч/б, единый тон -->
+  <div style="position:absolute;left:-50px;top:155px;width:388px;height:590px;border-radius:24px;overflow:hidden;filter:grayscale(1) brightness(.85) contrast(1.05);z-index:1;background:url(photos/career-negotiations.jpg) center 30%/cover no-repeat"></div>
+  <div style="position:absolute;left:395px;top:175px;width:386px;height:548px;border-radius:24px;overflow:hidden;filter:grayscale(1) brightness(.85) contrast(1.05);z-index:1;background:url(photos/cover-canton-1.jpg) 50% 20%/cover no-repeat"></div>
+  <div style="position:absolute;left:1128px;top:175px;width:390px;height:548px;border-radius:24px;overflow:hidden;filter:grayscale(1) brightness(.85) contrast(1.05);z-index:1;background:url(photos/career-expo-v.jpg) center 25%/cover no-repeat"></div>
+  <div style="position:absolute;left:1581px;top:155px;width:388px;height:590px;border-radius:24px;overflow:hidden;filter:grayscale(1) brightness(.85) contrast(1.05);z-index:1;background:url(photos/career-factory-viet.jpg) center 30%/cover no-repeat"></div>
+
+  <!-- Слой 2: мягкое светлое пятно за фигурой — отделяет тёмный пиджак от синего фона -->
+  <div style="position:absolute;left:50%;transform:translateX(-50%);top:60px;
+              width:940px;height:940px;
+              background:radial-gradient(closest-side,rgba(170,190,230,.45),transparent);
+              z-index:2;pointer-events:none"></div>
+
+  <!-- Слой 3: портрет по бёдра, маска снизу растворяется в фон, свечение по контуру -->
+  <div style="position:absolute;left:50%;transform:translateX(-50%);top:80px;
+              width:680px;height:1000px;
+              background:url(photos/anastasia-cutout-6991.png) center top/contain no-repeat;
+              z-index:3;pointer-events:none;
+              -webkit-mask-image:linear-gradient(to bottom,black 70%,transparent 100%);
+              mask-image:linear-gradient(to bottom,black 70%,transparent 100%);
+              filter:drop-shadow(0 0 24px rgba(200,215,245,.45))"></div>
+
+  <!-- Слой 4: градиент снизу -->
+  <div style="position:absolute;left:0;right:0;bottom:0;height:320px;
+              background:linear-gradient(to top,#13233D 0%,rgba(19,35,61,0) 100%);z-index:4"></div>
+
+  <!-- Слой 5: текст поверх фигуры -->
+  <div style="position:absolute;left:43px;top:37px;font-family:'Inter',sans-serif;font-weight:400;
+              font-size:38px;color:#fff;z-index:5;opacity:.7">media kit</div>
+  <div style="position:absolute;left:0;right:0;top:790px;text-align:center;z-index:5">
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:116px;line-height:1;
+                color:#fff;text-transform:uppercase;white-space:nowrap">Анастасия Реутова</div>
+  </div>
+  <div style="position:absolute;left:0;right:0;top:960px;text-align:center;z-index:5">
+    <div style="font-family:'Inter',sans-serif;font-weight:400;font-size:36px;line-height:1.3;
+                color:rgba(255,255,255,.78)">
+      Эксперт по ВЭД с Китаем &nbsp;·&nbsp; Собственник бизнеса &nbsp;·&nbsp; Наставник
+    </div>
+  </div>
+
+</div></div>
+
+<!-- ═════════ 2 · О СПИКЕРЕ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l1" style="flex-direction:row">
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:72px 72px 72px 110px">
+    <div class="h2" style="margin-bottom:36px">О спикере</div>
+    <div style="font-size:34px;line-height:1.45;color:var(--graphite);margin-bottom:36px">
+      <strong>Анастасия Реутова</strong> — Собственник бизнеса
+      <em>Dalian Jia Wei Cheng International Trading Co., Ltd.</em>,
+      эксперт по ВЭД, наставник.
+    </div>
+    <div class="quote-card" style="padding:36px 48px 36px 108px">
+      <div class="quote-text" style="font-size:30px">«Моя миссия — делать торговлю с Китаем простой, прозрачной и выгодной. В основе моей работы три принципа: честность и прозрачность (только "белый" ВЭД, без серых схем), системность (выстраиваю системные поставки для российских сетей и производителей, которые могут работать автономно) и уважение к культуре и людям (основа долгосрочных партнёрств)».</div>
+    </div>
+  </div>
+  <div style="width:700px;flex-shrink:0;position:relative">
+    <div style="position:absolute;bottom:0;right:-10px;height:1080px;width:720px;
+      background:url(photos/speaker-cutout.png) right bottom/auto 100% no-repeat;
+      filter:drop-shadow(0 20px 40px rgba(20,30,60,.15))"></div>
+  </div>
+</div></div>
+
+<!-- ═════════ 3 · КАРЬЕРНЫЙ ПУТЬ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l2">
+  <div class="pad" style="flex-direction:row;gap:72px">
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center">
+      <div class="h1" style="margin-bottom:36px">Карьерный<br><span class="g">путь</span></div>
+      <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:24px">
+        <li><strong>2014</strong> — ревизор по качеству морской рыбы для федеральной сети «Магнит». Проверка по физико-химическим и органолептическим показателям. Отгрузки по 500 т продукции/месяц.</li>
+        <li><strong>2011–2015</strong> — участие в China Fisheries &amp; Seafood Expo от завода Hunchun Yuanyang Group Co., Ltd. Переговоры с первыми лицами международных компаний. Привела 100+ новых клиентов из России, СНГ, США и Европы.</li>
+        <li><strong>2013–2016</strong> — работа на консервном предприятии DALIAN MENEW FOOD CO. LTD. За полгода — рост отгрузок на <strong>300%</strong>. Сети: ОК, Красное-белое, Всегда есть, Х5. Разработка рецептур, образцы, контроль качества, рекламации.</li>
+        <li><strong>2017 — н.в.</strong> — собственник <strong>Dalian Jia Wei Cheng International Trading Co., Ltd.</strong>
+          <br><span style="font-size:27px;color:rgba(59,59,56,.72);margin-top:6px;display:block">
+            Специфика: экспорт товаров из Китая · поиск поставщиков, контрактное производство под СТМ · «белый» ВЭД · работа с федеральными и региональными сетями и импортёрами напрямую · оптимизация и внедрение новых продуктов
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div style="width:600px;flex-shrink:0;display:flex;flex-direction:column;gap:20px">
+      <div style="flex:1;border-radius:32px;overflow:hidden;background:url(photos/career-negotiations.jpg) center 35%/cover no-repeat"></div>
+      <div style="flex:1;border-radius:32px;overflow:hidden;background:url(photos/career-factory-viet.jpg) center 30%/cover no-repeat"></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 4 · В ЦИФРАХ — 300+ ТОВАРОВ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l3">
+  <div class="pad" style="flex-direction:row;gap:0">
+
+    <!-- Левая: заголовок + 300+ товаров -->
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding-right:40px">
+      <div class="h1 h1-alt" style="margin-bottom:24px">Анастасия Реутова<br><span class="g">в цифрах</span></div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:32px;color:var(--navy);margin-bottom:18px">300+ товаров в портфеле</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+        <div class="exp-card" style="padding:20px 22px">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
+            <path d="M20 8a4 4 0 0 1 4 4H24M20 8a4 4 0 0 0-4 4H6l14 9 14-9H24" stroke="#13233D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 21v10a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V21" stroke="#13233D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="exp-title" style="font-size:21px">Одежда и аксессуары</div>
+          <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
+            <li>Верхняя и повседневная одежда, джинсы</li>
+            <li>Купальники, тапочки</li>
+            <li>Сумки: женские, мужские, спортивные, шопперы</li>
+          </ul>
+        </div>
+
+        <div class="exp-card" style="padding:20px 22px">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
+            <path d="M8 12h24l-3 14H11L8 12Z" stroke="#13233D" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="15" cy="32" r="2" fill="#13233D"/><circle cx="27" cy="32" r="2" fill="#13233D"/>
+            <path d="M4 6h4l4 6" stroke="#13233D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="exp-title" style="font-size:21px">Продукты питания (FMCG)</div>
+          <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
+            <li>Бакалея, консервация: имбирь, морская капуста, лапша, пельмени</li>
+            <li>Заморозка IQF: ягоды, овощи, рыба и морепродукты</li>
+            <li>Снеки, Fresh: свежие овощи и фрукты</li>
+          </ul>
+        </div>
+
+        <div class="exp-card" style="padding:20px 22px">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
+            <rect x="10" y="4" width="20" height="32" rx="3" stroke="#13233D" stroke-width="2"/>
+            <circle cx="20" cy="32" r="1.5" fill="#13233D"/>
+            <path d="M15 10h10" stroke="#13233D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="exp-title" style="font-size:21px">Электроника и гаджеты</div>
+          <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
+            <li>Мобильные аксессуары (чехлы для телефонов)</li>
+            <li>Аудио (беспроводные наушники)</li>
+          </ul>
+        </div>
+
+        <div class="exp-card" style="padding:20px 22px">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
+            <circle cx="20" cy="20" r="5" stroke="#13233D" stroke-width="2"/>
+            <path d="M20 4v4M20 32v4M4 20h4M32 20h4M7.5 7.5l2.8 2.8M29.7 29.7l2.8 2.8M7.5 32.5l2.8-2.8M29.7 10.3l2.8-2.8" stroke="#13233D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="exp-title" style="font-size:21px">Оборудование и B2B</div>
+          <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
+            <li>Промышленное оборудование (производственные линии)</li>
+            <li>Техника и прочее оборудование для бизнеса и быта</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div style="width:1px;background:rgba(19,35,61,.14);margin:56px 0;flex-shrink:0"></div>
+
+    <!-- Правая: 6 цифр -->
+    <div style="width:370px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-left:44px">
+      <div><div class="big-n" style="font-size:62px">500+</div><div class="stat-lbl" style="font-size:24px">клиентов в нише ВЭД с Китаем</div></div>
+      <div><div class="big-n" style="font-size:62px">11 лет</div><div class="stat-lbl" style="font-size:24px">переговоров с первыми лицами заводов</div></div>
+      <div><div class="big-n" style="font-size:62px">15 лет</div><div class="stat-lbl" style="font-size:24px">жизни в Китае</div></div>
+      <div><div class="big-n" style="font-size:62px">13 лет</div><div class="stat-lbl" style="font-size:24px">работы с Китаем</div></div>
+      <div><div class="big-n" style="font-size:62px">300+</div><div class="stat-lbl" style="font-size:24px">товаров в портфеле</div></div>
+      <div><div class="big-n" style="font-size:62px">×14</div><div class="stat-lbl" style="font-size:24px">рост оборота клиента за 5 лет на продуктах из Китая</div></div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 5 · В ЦИФРАХ — 500+ КЛИЕНТОВ ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="flex-direction:row;gap:0">
+
+    <!-- Левая: 500+ клиентов -->
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding-right:40px;gap:22px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:52px;line-height:1;color:#fff">500+ клиентов</div>
+      <div>
+        <div style="font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:14px">Федеральные и региональные сети</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Красное&amp;Белое</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Магнит</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Ашан</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">ОК</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Светофор</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Familia</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Верный</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Победа</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Командор</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600">Самбери</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:14px">Крупные импортёры и производства</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">Оптима</span>
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">Эксим Групп</span>
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">Ферэльгам</span>
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">ЭХО</span>
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">Белоручка</span>
+          <span style="background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 20px;font-size:21px;font-weight:600;border:1px solid rgba(255,255,255,.18)">и др.</span>
+        </div>
+        <div style="font-size:20px;color:rgba(255,255,255,.4);margin-top:10px">салатные производства, мясокомбинаты и другие импортёры</div>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div style="width:1px;background:rgba(255,255,255,.12);margin:56px 0;flex-shrink:0"></div>
+
+    <!-- Правая: 6 цифр -->
+    <div style="width:370px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-left:44px">
+      <div><div class="big-n" style="font-size:62px;color:#fff">500+</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">клиентов в нише ВЭД с Китаем</div></div>
+      <div><div class="big-n" style="font-size:62px;color:#fff">11 лет</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">переговоров с первыми лицами заводов</div></div>
+      <div><div class="big-n" style="font-size:62px;color:#fff">15 лет</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">жизни в Китае</div></div>
+      <div><div class="big-n" style="font-size:62px;color:#fff">13 лет</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">работы с Китаем</div></div>
+      <div><div class="big-n" style="font-size:62px;color:#fff">300+</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">товаров в портфеле</div></div>
+      <div><div class="big-n" style="font-size:62px;color:#fff">×14</div><div class="stat-lbl" style="font-size:24px;color:rgba(255,255,255,.7)">рост оборота клиента за 5 лет</div></div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 5 · ЭКСПЕРТИЗА (блоки 1–2) ═════════ -->
+<div class="slide-frame"><div class="slide bg-l4">
+  <div class="pad" style="flex-direction:row;gap:32px">
+
+    <!-- Левая ~35%: вопросы клиентов -->
+    <div style="flex:.42;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:14px">
+      <div class="h1 h1-alt" style="margin-bottom:8px;font-size:54px">Экспертиза и<br><span class="g">компетенции</span></div>
+      <div style="font-size:22px;line-height:1.35;color:var(--muted);margin-bottom:6px">Комплексное сопровождение от поиска фабрики до полки в российском ритейле</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">С какими вопросами<br>ко мне обращаются</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="quote-card" style="padding:16px 22px 16px 58px"><div class="quote-text" style="font-size:20px">«Где найти надёжного поставщика под мой товар?»</div></div>
+        <div class="quote-card" style="padding:16px 22px 16px 58px"><div class="quote-text" style="font-size:20px">«Как убедиться, что поставщик реален и не мошенник?»</div></div>
+        <div class="quote-card" style="padding:16px 22px 16px 58px"><div class="quote-text" style="font-size:20px">«Хочу свой бренд — как запустить производство в Китае?»</div></div>
+        <div class="quote-card" style="padding:16px 22px 16px 58px"><div class="quote-text" style="font-size:20px">«Как выстроить поставку, которая работает без меня?»</div></div>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div style="width:1px;background:rgba(19,35,61,.12);margin:40px 0;flex-shrink:0"></div>
+
+    <!-- Правая ~65%: экспертиза + результаты -->
+    <div style="flex:.58;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:14px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Экспертиза и компетенции</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+        <div class="exp-card" style="padding:22px 24px">
+          <div class="exp-title" style="font-size:20px">1. Поиск и подбор поставщиков</div>
+          <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+            <li>Подбор фабрик через 1688, Alibaba, Made-in-China, Global Sources, выставки</li>
+            <li>2–3 альтернативные площадки с ценами и сравнительным анализом</li>
+            <li>Организация запроса образцов</li>
+          </ul>
+          <div class="result-tag" style="font-size:17px">Результат: подборка проверенных фабрик с ценами и рекомендацией</div>
+        </div>
+
+        <div class="exp-card" style="padding:22px 24px">
+          <div class="exp-title" style="font-size:20px">1.2. Проверка контрагента</div>
+          <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+            <li>NECIPS (gsxt.gov.cn) — лицензия, капитал, статус</li>
+            <li>Таможенный реестр (credit.customs.gov.cn)</li>
+            <li>Коммерческие платформы — судебные дела, аномалии</li>
+            <li>Проверка документов и фактического адреса</li>
+          </ul>
+          <div class="result-tag" style="font-size:17px">Результат: отчёт с красными флагами или подтверждением</div>
+        </div>
+
+        <div class="exp-card" style="padding:22px 24px">
+          <div class="exp-title" style="font-size:20px">2.1. Контрактное производство под СТМ</div>
+          <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+            <li>Поиск фабрики под ваш бренд</li>
+            <li>Разработка рецептуры, упаковки, дизайна; защита ТМ в Китае</li>
+            <li>Минимальные объёмы, реальные сроки, сертификация</li>
+          </ul>
+          <div class="result-tag" style="font-size:17px">Результат: запущенное производство с полным циклом</div>
+        </div>
+
+        <div class="exp-card" style="padding:22px 24px">
+          <div class="exp-title" style="font-size:20px">2.2. Полный цикл поставки — от ТЗ до отгрузки</div>
+          <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+            <li>ТЗ → поиск и проверка → цены/образцы → 2 альтернативы</li>
+            <li>Договор, контроль производства, личный визит при первой отгрузке</li>
+            <li>Логистика, документы, доказательство таможенной стоимости</li>
+          </ul>
+          <div class="result-tag" style="font-size:17px">Результат: полный цикл от ТЗ до полки</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 5б · ЭКСПЕРТИЗА (блоки 3–5) ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="flex-direction:row;gap:32px">
+
+    <!-- Левая ~35%: вопросы -->
+    <div style="flex:.38;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:14px">
+      <div class="h1 h1-alt" style="margin-bottom:8px;font-size:54px">Экспертиза и<br><span class="g">компетенции</span></div>
+      <div style="font-size:22px;line-height:1.35;color:rgba(255,255,255,.5);margin-bottom:6px">Продолжение — блоки 3–5</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">С какими вопросами<br>ко мне обращаются</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 22px 16px 22px">
+          <div style="font-size:20px;line-height:1.35;color:rgba(255,255,255,.85);font-style:italic">«Как безопасно перевести деньги китайскому поставщику?»</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 22px">
+          <div style="font-size:20px;line-height:1.35;color:rgba(255,255,255,.85);font-style:italic">«Как получить лучшую цену, не потеряв в качестве?»</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 22px">
+          <div style="font-size:20px;line-height:1.35;color:rgba(255,255,255,.85);font-style:italic">«Как ввезти товар легально и без блокировок на таможне?»</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div style="width:1px;background:rgba(255,255,255,.12);margin:40px 0;flex-shrink:0"></div>
+
+    <!-- Правая ~65%: 3 блока -->
+    <div style="flex:.62;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:16px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Экспертиза и компетенции</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <div class="exp-card dark" style="padding:22px 28px">
+          <div class="exp-title white" style="font-size:21px">3. Оплата в Китай без зависших платежей</div>
+          <ul class="tri" style="font-size:20px;display:flex;flex-direction:column;gap:5px">
+            <li>Подбор банка с рабочей корреспондентской сетью; правильное назначение платежа</li>
+            <li>Подбор и проверка платёжного агента</li>
+            <li>Консультация по открытию торгового дома в Китае; возврат НДС при экспорте</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:17px">Результат: работающий маршрут оплаты с минимальными рисками зависания</div>
+        </div>
+
+        <div class="exp-card dark" style="padding:22px 28px">
+          <div class="exp-title white" style="font-size:21px">4. Лучшая цена без потери качества</div>
+          <ul class="tri" style="font-size:20px;display:flex;flex-direction:column;gap:5px">
+            <li>Анализ рынка; запрос полной таблицы цен по объёмам; рычаги: объём, сроки, Incoterms</li>
+            <li>Проверка качества после снижения цены; работа с первыми лицами заводов</li>
+            <li>Юридическая защита: договор, штрафы, форс-мажор, судебный механизм</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:17px">Результат: лучшая цена при сохранении качества и защита от рисков</div>
+        </div>
+
+        <div class="exp-card dark" style="padding:22px 28px">
+          <div class="exp-title white" style="font-size:21px">5. Сертификация и маркировка товаров из Китая</div>
+          <ul class="tri" style="font-size:20px;display:flex;flex-direction:column;gap:5px">
+            <li>Определение кода ТН ВЭД; декларация vs сертификат соответствия</li>
+            <li>Сбор документов от поставщика; маркировка ЕАС, «Честный знак»</li>
+            <li>Подготовка к изменениям 2027 года</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:17px">Результат: корректные документы, отсутствие блокировки груза</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 6 · КЕЙС: ОПТИМА ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="padding-right:88px">
+    <div style="margin-bottom:28px">
+      <div class="h1 h1-alt" style="margin-bottom:10px;font-size:50px">Запуск партнёрского проекта: масштабирование контрактного производства<br><span class="g">под СТМ для ООО «ОПТИМА»</span></div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div class="chip" style="font-size:22px;padding:12px 22px">Клиент: ООО «ОПТИМА»</div>
+        <div class="chip" style="font-size:22px;padding:12px 22px">Формат: контрактное производство (СТМ) и комплексный «белый» ВЭД</div>
+        <div class="chip" style="font-size:22px;padding:12px 22px">Период: 5 лет</div>
+      </div>
+    </div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;min-height:0;align-items:stretch">
+
+      <div class="case-card dark">
+        <div class="case-label white">01 · Исходная ситуация</div>
+        <div class="case-title white" style="font-size:24px">Создать и масштабировать собственный бренд с производством в Китае</div>
+        <div class="case-body white" style="font-size:21px">У компании отсутствовали компетенции для СТМ в КНР. Нужен был партнёр на полный цикл: от разработки концепции до «белого» ввоза в РФ.</div>
+      </div>
+
+      <div class="case-card dark">
+        <div class="case-label white">02 · Реализация — 7 шагов</div>
+        <div class="case-title white" style="font-size:22px">Роль внешнего директора по ВЭД</div>
+        <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:6px">
+          <li>Аналитика ниши и конкурентов</li>
+          <li>Сорсинг и аудит производства — фабрики под СТМ</li>
+          <li>Переговоры с первыми лицами (личный визит)</li>
+          <li>Разработка продукта: рецептура, упаковка, дизайн</li>
+          <li>Контроль качества (QC) при первой отгрузке</li>
+          <li>Документооборот и таможня: полный пакет, доказательство стоимости</li>
+          <li>Логистика до склада клиента в России</li>
+        </ul>
+      </div>
+
+      <div class="case-card dark">
+        <div class="case-label white">03 · Результат</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:64px;line-height:1;color:#fff;margin:8px 0">×14</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:28px;color:#fff;margin-bottom:8px">за 5 лет · 1 → 40 SKU</div>
+        <ul class="tri" style="font-size:20px;display:flex;flex-direction:column;gap:7px">
+          <li>Масштабирование продуктовой линейки с 1 до 40 позиций</li>
+          <li>Полностью автономная система: бренд, качество, логистика под контролем клиента</li>
+          <li>Расширение географии: Вьетнам, Армения, Таиланд</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 7 · КЕЙС: БЕЛЫЙ ИМПОРТ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l4">
+  <div class="pad">
+    <div style="margin-bottom:28px">
+      <div class="h1 h1-alt" style="margin-bottom:10px;font-size:48px">Выстраивание системы под клиента:<br><span class="g">«От ТЗ до склада маркетплейса — запуск белого импорта купальников из Китая»</span></div>
+    </div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;min-height:0;align-items:stretch">
+
+      <div class="case-card">
+        <div class="case-label">01 · Исходная ситуация</div>
+        <div class="case-title" style="font-size:28px">Масштабировать продажи купальников на маркетплейсах безопасно</div>
+        <div class="case-body" style="font-size:26px">Клиент планировал масштабировать продажи купальников на российских маркетплейсах, но нуждался в прозрачной системе поставок. Работать «в серую» — риск. Найти реальную фабрику под индивидуальные лекала без опыта — сложно.</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-label">02 · Наше решение (полный цикл)</div>
+        <div class="case-title" style="font-size:28px">Четыре шага под ключ</div>
+        <div class="case-body" style="font-size:24px">
+          <strong>Подбор:</strong> провели аудит рынка и отобрали фабрику, мощности которой соответствовали ТЗ клиента.<br><br>
+          <strong>Переговоры:</strong> взяли на себя коммуникацию с первыми лицами завода. Лучшие условия по цене, срокам и MOQ.<br><br>
+          <strong>Документы:</strong> корректный пакет отгрузочных и импортных документов. «Белый» ввоз, нет проблем на таможне.<br><br>
+          <strong>Логистика:</strong> рассчитали и организовали оптимальный маршрут до склада клиента.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-label">03 · Итог</div>
+        <div class="case-title" style="font-size:28px">Система, которая работает сама</div>
+        <div class="case-body" style="font-size:26px">Клиент получил отлаженную систему контрактного производства и логистики, что позволило ему безопасно масштабировать бизнес и выйти на новые объёмы продаж на маркетплейсах.</div>
+        <div style="margin-top:16px;padding:22px 26px;background:var(--navy);border-radius:14px;color:#fff;font-size:26px;font-weight:700;line-height:1.3">
+          Белый ВЭД ✓<br>
+          <span style="font-weight:400;opacity:.8;font-size:22px">Реальная фабрика · Безопасный импорт · Масштабирование</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 8 · СОЦИАЛЬНАЯ ИНИЦИАТИВА ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="flex-direction:row;gap:64px">
+
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center">
+      <div class="h1 h1-alt" style="margin-bottom:28px">Социальная<br><span class="g">инициатива</span></div>
+
+      <!-- Иконка воды + заголовок -->
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:20px">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 4C22 4 8 18 8 27a14 14 0 0 0 28 0C36 18 22 4 22 4Z" stroke="rgba(255,255,255,.7)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(255,255,255,.1)"/>
+        </svg>
+        <div class="h3" style="font-size:34px">Строительство скважины для школы в Кении</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 26px">
+          <div style="font-weight:700;font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Суть</div>
+          <div style="font-size:26px;line-height:1.35;color:rgba(255,255,255,.88)">Совместно с партнёром поддержала строительство скважины для отдалённой школы в Кении.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 26px">
+          <div style="font-weight:700;font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Проблема</div>
+          <div style="font-size:26px;line-height:1.35;color:rgba(255,255,255,.88)">Дети были вынуждены ежедневно проходить 17–20 км в поисках воды. На учёбу не оставалось ни сил, ни времени.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 26px">
+          <div style="font-weight:700;font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Что сделано</div>
+          <div style="font-size:26px;line-height:1.35;color:rgba(255,255,255,.88)">Профинансирован полный цикл работ — от бурения и возведения конструкции до сантехнических работ и торжественного открытия.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 26px">
+          <div style="font-weight:700;font-size:22px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Результат</div>
+          <div style="font-size:26px;line-height:1.35;color:rgba(255,255,255,.88)">Школа и деревня обеспечены чистой водой. У детей появилось главное — время на образование.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width:660px;flex-shrink:0;display:flex;flex-direction:column;gap:20px">
+      <div style="flex:1.2;border-radius:32px;overflow:hidden;background:url(photos/k_IMG_5926.JPG) center top/cover no-repeat"></div>
+      <div style="flex:.8;border-radius:32px;overflow:hidden;background:url(photos/k_IMG_4188.JPG) center 40%/cover no-repeat"></div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 9 · ТЕМЫ ДЛЯ СТУДЕНТОВ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l1">
+  <div class="pad">
+    <div style="display:flex;align-items:flex-end;gap:36px;margin-bottom:28px">
+      <div class="h1 h1-alt" style="margin-bottom:0;flex-shrink:0;font-size:56px">Темы выступлений<br><span class="g">для студентов и вузов</span></div>
+      <div class="chip" style="align-self:center;font-size:26px">30 мин (20 + Q&A 10)</div>
+    </div>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;color:var(--navy);margin-bottom:20px">«Китай как карьерный трек: от студенческого гранта до владения бизнесом»</div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;align-items:stretch">
+
+      <div class="exp-card" style="padding:20px 26px">
+        <div class="exp-title" style="font-size:22px">1. Образовательный трек</div>
+        <div style="font-size:20px;color:var(--muted);margin-bottom:6px">Как получить грант и монетизировать обучение</div>
+        <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+          <li>Источники: государственные стипендии КНР (CSC), гранты Института Конфуция, региональные программы</li>
+          <li>Критерии отбора: академуспеваемость, мотивационное письмо, уровень языка — чек-лист абитуриента</li>
+          <li>Экономика: сколько стоит обучение в Китае и как грант закрывает расходы</li>
+          <li>ROI обучения: нетворкинг и стажировки в китайских корпорациях</li>
+        </ul>
+      </div>
+
+      <div class="exp-card" style="padding:20px 26px">
+        <div class="exp-title" style="font-size:22px">2. Карьерный трек</div>
+        <div style="font-size:20px;color:var(--muted);margin-bottom:6px">Стратегия трудоустройства на рынке КНР</div>
+        <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+          <li>Востребованные компетенции: ВЭД, логистика, продажи на маркетплейсах, IT</li>
+          <li>Каналы: HR-платформы BOSS直聘, 智联招聘, 前程无忧 vs LinkedIn</li>
+          <li>Рабочая виза Z — почему нельзя работать по туристической (депортация, штрафы)</li>
+          <li>Ловушки контрактов: бонусы, переработки, испытательный срок; открытие компании в КНР</li>
+        </ul>
+      </div>
+
+      <div class="exp-card" style="padding:20px 26px">
+        <div class="exp-title" style="font-size:22px">3. Культурный трек</div>
+        <div style="font-size:20px;color:var(--muted);margin-bottom:6px">Менталитет и деловые коммуникации</div>
+        <ul class="tri" style="font-size:19px;display:flex;flex-direction:column;gap:5px">
+          <li>Концепция «лица»: почему прямой отказ не работает и как добиться цели</li>
+          <li>Тактика изматывания: как китайцы используют время в переговорах</li>
+          <li>Деловой китайский: переход от учебного путунхуа к лексике переговоров и WeChat</li>
+          <li>Путь к HSK 6 — личный опыт: стратегия с нуля до уровня контрактов</li>
+        </ul>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="exp-card" style="padding:18px 24px">
+          <div class="exp-title" style="font-size:22px">4. Q&amp;A</div>
+          <div style="font-size:19px;color:var(--muted)">Ответы на вопросы аудитории</div>
+        </div>
+        <div class="card" style="padding:20px 26px">
+          <div class="label" style="margin-bottom:8px">Личный опыт</div>
+          <div style="font-size:22px;line-height:1.35">15+ лет жизни в Китае · HSK 6 с нуля · 100+ клиентов из 4 стран с первой выставки</div>
+        </div>
+        <div class="card" style="padding:20px 26px">
+          <div class="label" style="margin-bottom:8px">Аудитория</div>
+          <div style="font-size:22px;line-height:1.35">Студенты, которые хотят строить карьеру или бизнес с Китаем</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 10 · ТЕМЫ ДЛЯ БИЗНЕСА ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad">
+    <div class="h1 h1-alt" style="margin-bottom:16px">Темы выступлений<br><span class="g">для бизнес-аудитории</span></div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;align-items:center">
+      <div class="chip" style="font-size:20px;padding:12px 22px">Язык: русский, китайский HSK 6 (15+ лет в Китае)</div>
+    </div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;min-height:0">
+
+      <div>
+        <div style="font-weight:700;font-size:24px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px">Аудитория</div>
+        <ul class="sq" style="font-size:24px;display:flex;flex-direction:column;gap:16px">
+          <li>Предприниматели, которые работают с Китаем или планируют начать</li>
+          <li>Владельцы бизнеса в сфере импорта/ВЭД</li>
+          <li>Закупщики и менеджеры по ВЭД</li>
+          <li>Владельцы брендов и ритейлеры, ищущие производство в Китае</li>
+          <li>Уровень: от начинающих (первая сделка) до опытных (оптимизация процессов). B2B</li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="font-weight:700;font-size:24px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px">Темы выступлений</div>
+        <ul class="sq" style="font-size:24px;display:flex;flex-direction:column;gap:14px">
+          <li><strong>Тема 1:</strong> «Поиск поставщика: как найти, проверить и не потерять деньги»</li>
+          <li><strong>Тема 2:</strong> «Размещение контрактного производства на фабриках Китая. Как выстроить полный цикл работ»</li>
+          <li><strong>Тема 3:</strong> «Оплата за товар в Китай: SWIFT, альтернативные схемы и платёжные агенты "за" и "против"»</li>
+          <li><strong>Тема 4:</strong> «Сертификация и маркировка для поставок из Китая. Что нужно знать для отгрузки»</li>
+          <li><strong>Тема 5:</strong> «Переговоры с китайцами: правила, которые реально работают»</li>
+          <li><strong>Тема 6:</strong> «Контрактное производство под СТМ в Китае: от идеи до полки»</li>
+          <li><strong>Тема 7:</strong> «Правила переговоров с китайцами: как получить лучшие условия»</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 11 · ТЕМА 1: ПОИСК ПОСТАВЩИКА + ТЕМА 2: КОНТРАКТНОЕ ПРОИЗВОДСТВО ═════════ -->
+<div class="slide-frame"><div class="slide bg-l2">
+  <div class="pad">
+    <div class="h1 h1-alt" style="margin-bottom:20px;font-size:52px">Темы 1 и 2<br><span class="g">в деталях</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0;align-items:stretch">
+
+      <!-- Тема 1 -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:24px;color:var(--navy)">«Поиск поставщика: как найти, проверить и не потерять деньги»</div>
+        <div style="font-size:21px;color:var(--muted)">Продолжительность: 30–40 мин · Аудитория: предприниматели, открывающие новые ниши</div>
+        <div class="case-card" style="padding:22px 28px;gap:10px">
+          <div class="case-label" style="font-size:17px">Блок 1 — 5 работающих каналов поиска</div>
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:7px">
+            <li>Электронные площадки: Alibaba, 1688, Made-in-China, Global Sources</li>
+            <li>Государственные реестры КНР: gsxt.gov.cn (лицензия, капитал, адрес)</li>
+            <li>Таможенный реестр: credit.customs.gov.cn — регистрация экспортёра</li>
+            <li>Таможенная статистика: отследить экспортёров по кодам ТН ВЭД</li>
+            <li>Профильные выставки: Canton Fair и отраслевые</li>
+          </ul>
+        </div>
+        <div class="case-card" style="padding:22px 28px;gap:10px">
+          <div class="case-label" style="font-size:17px">Блок 2 — Проверка контрагента</div>
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:7px">
+            <li>Государственные и коммерческие платформы</li>
+            <li>Проверка уставных документов и реквизитов</li>
+          </ul>
+        </div>
+        <div class="case-card" style="padding:22px 28px;gap:10px">
+          <div class="case-label" style="font-size:17px">Блок 3 — Цены, образцы, визит</div>
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:7px">
+            <li>Запрос цен и образцов, 2 альтернативные площадки</li>
+            <li>Личный визит на производство при первой отгрузке</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Тема 2 -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--navy)">«Размещение контрактного производства на фабриках Китая. Как выстроить полный цикл работ»</div>
+        <div style="font-size:22px;color:var(--muted)">Формат: таймлайн полного цикла поставки</div>
+        <div class="case-card" style="padding:22px 28px;gap:10px">
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:9px">
+            <li>Запрос по техническому заданию от клиента</li>
+            <li>Поиск поставщика → проверка контрагента</li>
+            <li>Запрос цен, образцов; выбор 2 альтернативных площадок</li>
+            <li>Заключение договора: исключение рисков (сроки, штрафы, качество, суд; ТПП и консульство при конфликте)</li>
+            <li>Согласование условий оплаты (предоплата, рассрочка)</li>
+            <li>Производство по техническому заданию</li>
+            <li>Проверка партии при первой отгрузке (личный визит представителя)</li>
+            <li>Отгрузка, выбор оптимальной транспортной логистики</li>
+            <li>Подготовка отгрузочных документов (от этого зависит лёгкость импорта)</li>
+            <li>Доказательство таможенной стоимости продукции при импорте</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 12 · ТЕМЫ 3 И 4: ОПЛАТА + СЕРТИФИКАЦИЯ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l3">
+  <div class="pad">
+    <div class="h1 h1-alt" style="margin-bottom:20px;font-size:52px">Темы 3 и 4<br><span class="g">в деталях</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0;align-items:stretch">
+
+      <!-- Тема 3: Оплата -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--navy)">«Оплата за товар в Китай: SWIFT, альтернативные схемы и платёжные агенты "за" и "против"»</div>
+        <div style="font-size:22px;color:var(--muted)">Продолжительность: 30 мин</div>
+        <div class="quote-card" style="padding:22px 30px 22px 80px;margin-bottom:4px">
+          <div class="quote-text" style="font-size:23px">«Я не понимаю, как безопасно и быстро перевести деньги китайскому поставщику, и боюсь, что платёж зависнет или потеряется»</div>
+        </div>
+        <div class="case-card" style="padding:20px 26px;gap:10px">
+          <div class="case-label" style="font-size:17px">Блок 1 — SWIFT и прямые банковские платежи</div>
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:7px">
+            <li>Какие банки проводят платежи с Китаем</li>
+            <li>Как подготовить документы, чтобы платёж не завис</li>
+            <li>Как описать назначение платежа</li>
+          </ul>
+        </div>
+        <div class="case-card" style="padding:20px 26px;gap:10px">
+          <div class="case-label" style="font-size:17px">Блок 2 — Альтернативные схемы: агенты и торговые дома</div>
+          <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:7px">
+            <li>Когда нужен платёжный агент — и как его проверить до первого перевода</li>
+            <li>Когда стоит открывать торговый дом в Китае</li>
+            <li>Возврат НДС при экспорте через торговый дом</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Тема 4: Сертификация -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--navy)">«Сертификация и маркировка для поставок из Китая. Что нужно знать для отгрузки»</div>
+        <div style="font-size:22px;color:var(--muted)">Продолжительность: 30 мин</div>
+        <div class="case-card" style="padding:20px 26px;gap:10px">
+          <ul class="tri" style="font-size:23px;display:flex;flex-direction:column;gap:12px">
+            <li><strong>Изменения 2027 года</strong> в сертификации и маркировке — как не потерять деньги</li>
+            <li><strong>Документы от поставщика</strong> для оформления сертификации — что чаще всего «забывают»</li>
+            <li><strong>Маркировка ЕАС</strong> и требования к этикетке vs «Честный знак» — разбор соотношения</li>
+            <li><strong>Что реально происходит с грузом</strong>, если маркировка нанесена неправильно или не нанесена вовсе</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 13 · ТЕМЫ 5, 6, 7 ═════════ -->
+<div class="slide-frame"><div class="slide bg-l4">
+  <div class="pad">
+    <div class="h1 h1-alt" style="margin-bottom:24px;font-size:52px">Темы 5, 6 и 7<br><span class="g">в деталях</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;min-height:0;align-items:stretch">
+
+      <!-- Тема 5 -->
+      <div class="case-card" style="gap:14px">
+        <div class="case-label">Тема 5</div>
+        <div class="case-title">«Переговоры с китайцами: правила, которые реально работают»</div>
+        <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:10px">
+          <li>Менталитет: почему прямой вопрос — плохой вопрос</li>
+          <li>Как вести переговоры с первыми лицами заводов</li>
+          <li>Что никогда нельзя говорить китайскому поставщику</li>
+          <li>Как добиться лучшей цены без потери качества</li>
+        </ul>
+        <div style="font-size:21px;color:rgba(59,59,56,.65);margin-top:4px"><strong>Для кого:</strong> закупщики, владельцы бизнеса, менеджеры по ВЭД</div>
+      </div>
+
+      <!-- Тема 6 -->
+      <div class="case-card" style="gap:14px">
+        <div class="case-label">Тема 6</div>
+        <div class="case-title">«Контрактное производство под СТМ в Китае: от идеи до полки»</div>
+        <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:10px">
+          <li>Как найти фабрику, готовую работать под вашим брендом</li>
+          <li>Разработка рецептуры, упаковки, сертификации</li>
+          <li>Минимальные объёмы и реальные сроки</li>
+          <li>Как защитить свою торговую марку в Китае</li>
+        </ul>
+        <div style="font-size:21px;color:rgba(59,59,56,.65);margin-top:4px"><strong>Для кого:</strong> владельцы брендов, ритейлеры, производители</div>
+      </div>
+
+      <!-- Тема 7 -->
+      <div class="case-card" style="gap:14px">
+        <div class="case-label">Тема 7</div>
+        <div class="case-title">«Правила переговоров с китайцами: как получить лучшие условия»</div>
+        <ul class="tri" style="font-size:22px;display:flex;flex-direction:column;gap:10px">
+          <li>Что никогда нельзя говорить и делать на переговорах с китайцами. Особенности менталитета</li>
+          <li>Какие улучшения условий, кроме цены, можно получить от поставщика</li>
+          <li>Как объём и сроки поставки влияют на стоимость товара</li>
+          <li>«Тактика изматывания» — затягивание до момента, когда вы готовы согласиться на что угодно</li>
+          <li>Как поддерживать связи с поставщиком, чтобы укреплять отношения и получать лучшие условия</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div></div>
+
+<!-- ═════════ 14 · ПРИЗНАНИЕ И БЛАГОДАРНОСТИ ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="flex-direction:row;gap:52px">
+
+    <!-- Левая: заголовок + легенда -->
+    <div style="flex:.75;min-width:0;display:flex;flex-direction:column;justify-content:center">
+      <div class="h1 h1-alt" style="margin-bottom:28px;font-size:56px">Признание<br><span class="g">и благодарности</span></div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px">
+          <div style="font-weight:700;font-size:26px;color:#fff;margin-bottom:6px">WorldFood Moscow 2026</div>
+          <div style="font-size:22px;color:rgba(255,255,255,.65);line-height:1.45">Золотая медаль «Продукт года»<br>Диплом обладателя · номинация: плодоовощная продукция</div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px">
+          <div style="font-weight:700;font-size:26px;color:#fff;margin-bottom:6px">WorldFood Moscow 2019 · 2021</div>
+          <div style="font-size:22px;color:rgba(255,255,255,.65);line-height:1.45">Сертификат активного участника выставки · Dalian Jia Wei Cheng</div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px">
+          <div style="font-weight:700;font-size:26px;color:#fff;margin-bottom:6px">Международные сертификаты</div>
+          <div style="font-size:22px;color:rgba(255,255,255,.65);line-height:1.45">HACCP · ISO 9001 — система менеджмента качества</div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px">
+          <div style="font-weight:700;font-size:26px;color:#fff;margin-bottom:6px">Кения, 05/2025</div>
+          <div style="font-size:22px;color:rgba(255,255,255,.65);line-height:1.45">Благодарственная табличка от школы Mkunumbi Primary School · помощь в строительстве скважины · Suvorov Pavel Foundation № 55</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Правая: медаль + диплом + Kenya + сертификаты -->
+    <div style="flex:1.3;min-width:0;display:flex;flex-direction:column;gap:12px;justify-content:center">
+      <!-- Медаль + диплом + табличка Кения -->
+      <div style="display:flex;gap:14px;align-items:flex-end">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="border-radius:12px;padding:0;box-shadow:0 14px 36px rgba(0,0,0,.5);height:270px;overflow:hidden;transform:rotate(-3deg);width:100%;background:url(photos/letter-1.jpg) center/contain no-repeat;background-color:#fff"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.55);text-align:center">WorldFood Moscow · Золотая медаль · 2026</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="border-radius:12px;padding:0;box-shadow:0 14px 36px rgba(0,0,0,.5);height:270px;overflow:hidden;transform:rotate(2.5deg);width:100%;background:url(photos/letter-2.jpg) center/contain no-repeat;background-color:#fff"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.55);text-align:center">Диплом обладателя · WorldFood 2026</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="border-radius:12px;box-shadow:0 14px 36px rgba(0,0,0,.5);height:270px;overflow:hidden;width:100%;background:url(photos/k_IMG_6713.JPG) center/cover no-repeat"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.55);text-align:center">Кения, 05/2025 · школа · благодарность за скважину</div>
+        </div>
+      </div>
+      <!-- 4 сертификата -->
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <div style="flex:1;display:flex;flex-direction:column;gap:7px">
+          <div style="height:190px;border-radius:10px;overflow:hidden;background:url(photos/cert-wf2019.png) center top/cover no-repeat;box-shadow:0 8px 24px rgba(0,0,0,.4)"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.5);text-align:center">WorldFood 2019 · участник</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:7px">
+          <div style="height:190px;border-radius:10px;overflow:hidden;background:url(photos/cert-wf2021.png) center top/cover no-repeat;box-shadow:0 8px 24px rgba(0,0,0,.4)"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.5);text-align:center">WorldFood 2021 · участник</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:7px">
+          <div style="height:190px;border-radius:10px;overflow:hidden;background:url(photos/cert-haccp.png) center/cover no-repeat;box-shadow:0 8px 24px rgba(0,0,0,.4)"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.5);text-align:center">HACCP · сертификат</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:7px">
+          <div style="height:190px;border-radius:10px;overflow:hidden;background:url(photos/cert-iso9001.png) center/cover no-repeat;box-shadow:0 8px 24px rgba(0,0,0,.4)"></div>
+          <div style="font-size:16px;color:rgba(255,255,255,.5);text-align:center">ISO 9001 · сертификат</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<!-- ═════════ 15 · КОНТАКТЫ ═════════ -->
+<div class="slide-frame"><div class="slide bg-l2">
+
+  <!-- Заголовок -->
+  <div style="position:absolute;left:114px;top:75px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:70px;line-height:1;text-transform:uppercase;color:#3B3B38">Контакты</div>
+
+  <!-- Подпись над QR -->
+  <div style="position:absolute;left:114px;top:223px;font-family:'Inter',sans-serif;font-weight:400;font-size:37px;color:#3B3B38">Instagram</div>
+
+  <!-- QR Instagram 412×412 -->
+  <div style="position:absolute;left:114px;top:287px;width:412px;height:412px;background:#fff;border:1px solid #3B3B38;border-radius:30px;padding:18px;box-sizing:border-box">
+    <div style="width:100%;height:100%;background:url(photos/qr-instagram.png) center/contain no-repeat;image-rendering:pixelated"></div>
+  </div>
+
+  <!-- Кнопка: телефон -->
+  <div style="position:absolute;left:114px;top:760px;display:flex;gap:20px;align-items:center">
+    <div class="pill" style="border-radius:28px">+86 130 0941 5929</div>
+  </div>
+
+  <!-- Кнопка: email -->
+  <div style="position:absolute;left:114px;top:884px;display:flex;gap:20px;align-items:center">
+    <div class="pill" style="border-radius:28px">sales@madeincn.ru</div>
+  </div>
+
+  <!-- Правая часть: фото Анастасии -->
+  <div style="position:absolute;left:1160px;top:0;width:760px;height:1080px;overflow:hidden;border-radius:48px 0 0 48px;background:url(photos/contacts-portrait.jpg) center 15%/cover no-repeat">
+    <div style="position:absolute;left:0;right:0;bottom:0;height:480px;background:linear-gradient(to top,rgba(19,35,61,.92) 0%,rgba(19,35,61,0) 45%)"></div>
+    <div style="position:absolute;left:52px;bottom:52px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:52px;line-height:1;color:#fff">Анастасия Реутова</div>
+      <div style="font-family:'Inter',sans-serif;font-size:24px;line-height:1.4;color:rgba(255,255,255,.85);margin-top:12px">Эксперт по ВЭД с Китаем<br>Dalian Jia Wei Cheng International Trading Co., Ltd.<br>Наставник · Собственник бизнеса</div>
+    </div>
+  </div>
+
+</div></div>
+
+<script>
+(function(){
+  var re1=/(^|[\s«(])([А-Яа-яЁёA-Za-z0-9№]{1,2})\s+(?=\S)/g, re2=/\s+([—–])/g, re3=/(\d)\s+(?=[А-Яа-яЁё%м])/g;
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);
+  var n; while((n=w.nextNode())){
+    var p=n.parentNode&&n.parentNode.nodeName; if(p==='SCRIPT'||p==='STYLE') continue;
+    var t=n.nodeValue; if(!t.trim()) continue;
+    var r=t.replace(re1,function(m,a,b){return a+b+' ';}).replace(re1,function(m,a,b){return a+b+' ';})
+           .replace(re2,' $1').replace(re3,'$1 ');
+    if(r!==t) n.nodeValue=r;
+  }
+})();
+(function(){
+  var W=1920,H=1080;
+  function fit(){
+    var s=Math.min((window.innerWidth-48)/W,(window.innerHeight-48)/H,1);
+    document.querySelectorAll('.slide-frame').forEach(function(f){
+      var sl=f.querySelector('.slide'); sl.style.transform='scale('+s+')';
+      f.style.width=(W*s)+'px'; f.style.height=(H*s)+'px';
+    });
+  }
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('.slide-frame').forEach(function(f){f.style.width='';f.style.height='';f.querySelector('.slide').style.transform='none';});});
+  window.addEventListener('afterprint',fit);
+  fit(); window.addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>
