@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#2D6040;
+  --navy:#1E3A2F;
   --graphite:#3B3B38;
   --muted:rgba(59,59,56,.6);
   --panel:#F9F9F9;
   --card:#F6F6F6;
-  --quote-card:#EDF4FF;
-  --accent:61,90,138;
+  --quote-card:#EEF5F0;
+  --accent:30,58,47;
   --W:1920px;
   --H:1080px;
 }
@@ -41,12 +41,12 @@ img{display:block}
 /* ── фоны ── */
 .bg-cover,.bg-dark,.bg-l1,.bg-l2,.bg-l3,.bg-l4{
   background-size:cover!important;background-position:center!important}
-.bg-cover{background-image:url(backgrounds/bg-cover.png)}
-.bg-dark{background-image:url(backgrounds/bg-dark.png)}
-.bg-l1{background-image:url(backgrounds/bg-light-1.png)}
-.bg-l2{background-image:url(backgrounds/bg-light-2.png)}
-.bg-l3{background-image:url(backgrounds/bg-light-3.png)}
-.bg-l4{background-image:url(backgrounds/bg-light-4.png)}
+.bg-cover{background-image:url(backgrounds/bg-cover-green.png)}
+.bg-dark{background-image:url(backgrounds/bg-dark-green.png)}
+.bg-l1{background-image:url(backgrounds/bg-light-1-green.png)}
+.bg-l2{background-image:url(backgrounds/bg-light-2-green.png)}
+.bg-l3{background-image:url(backgrounds/bg-light-3-green.png)}
+.bg-l4{background-image:url(backgrounds/bg-light-4-green.png)}
 
 .pad{padding:72px 96px 68px 110px;display:flex;flex-direction:column;flex:1;min-height:0}
 
@@ -110,7 +110,7 @@ ul.w li::before{border-left-color:#fff}
 .is-dark .quote-card{background:rgba(255,255,255,.08)}
 .is-dark .quote-card::before{color:rgba(255,255,255,.1)}
 .is-dark .chip{background:#F6F6F6;color:#3B3B38}
-.is-dark .pill{background:#fff;color:#2D6040}
+.is-dark .pill{background:#fff;color:#1E3A2F}
 .is-dark ul.tri li::before{border-left-color:#fff}
 .is-dark ul.sq li::before{background:#fff}
 
@@ -118,9 +118,9 @@ ul.w li::before{border-left-color:#fff}
 .case-card{background:#F6F6F6;border-radius:28px;padding:36px 40px;display:flex;flex-direction:column;gap:14px}
 .case-card.dark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
 .case-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:.1em;
-            text-transform:uppercase;color:rgba(45,96,64,.45);margin-bottom:4px}
+            text-transform:uppercase;color:rgba(30,58,47,.45);margin-bottom:4px}
 .case-label.white{color:rgba(255,255,255,.4)}
-.case-title{font-family:'Inter',sans-serif;font-weight:700;font-size:28px;line-height:1.2;color:#2D6040}
+.case-title{font-family:'Inter',sans-serif;font-weight:700;font-size:28px;line-height:1.2;color:#1E3A2F}
 .case-title.white{color:#fff}
 .case-body{font-size:24px;line-height:1.4;color:#3B3B38}
 .case-body.white{color:rgba(255,255,255,.78)}
@@ -128,13 +128,13 @@ ul.w li::before{border-left-color:#fff}
 /* ── expertise card ── */
 .exp-card{background:#F6F6F6;border-radius:20px;padding:28px 32px;display:flex;flex-direction:column;gap:10px}
 .exp-card.dark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
-.exp-title{font-family:'Inter',sans-serif;font-weight:700;font-size:26px;line-height:1.2;color:#2D6040}
+.exp-title{font-family:'Inter',sans-serif;font-weight:700;font-size:26px;line-height:1.2;color:#1E3A2F}
 .exp-title.white{color:#fff}
 .exp-pain{font-size:22px;line-height:1.35;color:rgba(59,59,56,.7);font-style:italic}
 .exp-pain.white{color:rgba(255,255,255,.55)}
 .exp-body{font-size:21px;line-height:1.35;color:#3B3B38}
 .exp-body.white{color:rgba(255,255,255,.75)}
-.result-tag{background:#2D6040;color:#fff;border-radius:8px;padding:8px 18px;
+.result-tag{background:#1E3A2F;color:#fff;border-radius:8px;padding:8px 18px;
             font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;
             letter-spacing:.02em;align-self:flex-start;margin-top:4px}
 .result-tag.accent{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff}
@@ -168,7 +168,7 @@ ul.w li::before{border-left-color:#fff}
 
   <!-- Слой 4: градиент снизу -->
   <div style="position:absolute;left:0;right:0;bottom:0;height:320px;
-              background:linear-gradient(to top,#2D6040 0%,rgba(45,96,64,0) 100%);z-index:4"></div>
+              background:linear-gradient(to top,#1E3A2F 0%,rgba(30,58,47,0) 100%);z-index:4"></div>
 
   <!-- Слой 5: текст поверх фигуры -->
   <div style="position:absolute;left:43px;top:37px;font-family:'Inter',sans-serif;font-weight:400;
@@ -199,10 +199,12 @@ ul.w li::before{border-left-color:#fff}
       <div class="quote-text" style="font-size:30px">«Моя миссия — делать торговлю с Китаем простой, прозрачной и выгодной. В основе моей работы три принципа: честность и прозрачность (только "белый" ВЭД, без серых схем), системность (выстраиваю системные поставки для российских сетей и производителей, которые могут работать автономно) и уважение к культуре и людям (основа долгосрочных партнёрств)».</div>
     </div>
   </div>
-  <div style="width:700px;flex-shrink:0;position:relative">
-    <div style="position:absolute;bottom:0;right:-10px;height:1080px;width:720px;
-      background:url(photos/speaker-cutout-7182.png) center bottom/auto 100% no-repeat;
-      filter:drop-shadow(0 20px 40px rgba(20,30,60,.15))"></div>
+  <div style="width:760px;flex-shrink:0;position:relative">
+    <div style="position:absolute;bottom:0;right:0;height:1080px;width:760px;
+      background:url(photos/speaker-cutout-7182-clean.png) center bottom/760px auto no-repeat;
+      filter:drop-shadow(-6px 0 28px rgba(20,40,25,.12));
+      -webkit-mask-image:linear-gradient(to bottom,black 72%,transparent 97%);
+      mask-image:linear-gradient(to bottom,black 72%,transparent 97%)"></div>
   </div>
 </div></div>
 
@@ -241,8 +243,8 @@ ul.w li::before{border-left-color:#fff}
 
         <div class="exp-card" style="padding:20px 22px">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
-            <path d="M20 8a4 4 0 0 1 4 4H24M20 8a4 4 0 0 0-4 4H6l14 9 14-9H24" stroke="#2D6040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6 21v10a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V21" stroke="#2D6040" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 8a4 4 0 0 1 4 4H24M20 8a4 4 0 0 0-4 4H6l14 9 14-9H24" stroke="#1E3A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 21v10a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V21" stroke="#1E3A2F" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <div class="exp-title" style="font-size:21px">Одежда и аксессуары</div>
           <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
@@ -254,9 +256,9 @@ ul.w li::before{border-left-color:#fff}
 
         <div class="exp-card" style="padding:20px 22px">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
-            <path d="M8 12h24l-3 14H11L8 12Z" stroke="#2D6040" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="15" cy="32" r="2" fill="#2D6040"/><circle cx="27" cy="32" r="2" fill="#2D6040"/>
-            <path d="M4 6h4l4 6" stroke="#2D6040" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 12h24l-3 14H11L8 12Z" stroke="#1E3A2F" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="15" cy="32" r="2" fill="#1E3A2F"/><circle cx="27" cy="32" r="2" fill="#1E3A2F"/>
+            <path d="M4 6h4l4 6" stroke="#1E3A2F" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <div class="exp-title" style="font-size:21px">Продукты питания (FMCG)</div>
           <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
@@ -268,9 +270,9 @@ ul.w li::before{border-left-color:#fff}
 
         <div class="exp-card" style="padding:20px 22px">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
-            <rect x="10" y="4" width="20" height="32" rx="3" stroke="#2D6040" stroke-width="2"/>
-            <circle cx="20" cy="32" r="1.5" fill="#2D6040"/>
-            <path d="M15 10h10" stroke="#2D6040" stroke-width="2" stroke-linecap="round"/>
+            <rect x="10" y="4" width="20" height="32" rx="3" stroke="#1E3A2F" stroke-width="2"/>
+            <circle cx="20" cy="32" r="1.5" fill="#1E3A2F"/>
+            <path d="M15 10h10" stroke="#1E3A2F" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <div class="exp-title" style="font-size:21px">Электроника и гаджеты</div>
           <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
@@ -281,8 +283,8 @@ ul.w li::before{border-left-color:#fff}
 
         <div class="exp-card" style="padding:20px 22px">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:6px;flex-shrink:0">
-            <circle cx="20" cy="20" r="5" stroke="#2D6040" stroke-width="2"/>
-            <path d="M20 4v4M20 32v4M4 20h4M32 20h4M7.5 7.5l2.8 2.8M29.7 29.7l2.8 2.8M7.5 32.5l2.8-2.8M29.7 10.3l2.8-2.8" stroke="#2D6040" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="5" stroke="#1E3A2F" stroke-width="2"/>
+            <path d="M20 4v4M20 32v4M4 20h4M32 20h4M7.5 7.5l2.8 2.8M29.7 29.7l2.8 2.8M7.5 32.5l2.8-2.8M29.7 10.3l2.8-2.8" stroke="#1E3A2F" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <div class="exp-title" style="font-size:21px">Оборудование и B2B</div>
           <ul class="tri" style="font-size:18px;display:flex;flex-direction:column;gap:4px;margin-top:5px">
@@ -295,7 +297,7 @@ ul.w li::before{border-left-color:#fff}
     </div>
 
     <!-- Разделитель -->
-    <div style="width:1px;background:rgba(45,96,64,.14);margin:56px 0;flex-shrink:0"></div>
+    <div style="width:1px;background:rgba(30,58,47,.14);margin:56px 0;flex-shrink:0"></div>
 
     <!-- Правая: 6 цифр -->
     <div style="width:370px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-left:44px">
@@ -380,7 +382,7 @@ ul.w li::before{border-left-color:#fff}
     </div>
 
     <!-- Разделитель -->
-    <div style="width:1px;background:rgba(45,96,64,.12);margin:40px 0;flex-shrink:0"></div>
+    <div style="width:1px;background:rgba(30,58,47,.12);margin:40px 0;flex-shrink:0"></div>
 
     <!-- Правая ~65%: экспертиза + результаты -->
     <div style="flex:.58;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:14px">
@@ -987,7 +989,7 @@ ul.w li::before{border-left-color:#fff}
 
   <!-- Правая часть: фото Анастасии -->
   <div style="position:absolute;left:1160px;top:0;width:760px;height:1080px;overflow:hidden;border-radius:48px 0 0 48px;background:url(photos/IMG_6633.JPG) center 10%/cover no-repeat">
-    <div style="position:absolute;left:0;right:0;bottom:0;height:480px;background:linear-gradient(to top,rgba(45,96,64,.92) 0%,rgba(45,96,64,0) 45%)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:480px;background:linear-gradient(to top,rgba(30,58,47,.92) 0%,rgba(30,58,47,0) 45%)"></div>
     <div style="position:absolute;left:52px;bottom:52px">
       <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:52px;line-height:1;color:#fff">Анастасия Реутова</div>
       <div style="font-family:'Inter',sans-serif;font-size:24px;line-height:1.4;color:rgba(255,255,255,.85);margin-top:12px">Эксперт по ВЭД с Китаем<br>Dalian Jia Wei Cheng International Trading Co., Ltd.<br>Наставник · Собственник бизнеса</div>
