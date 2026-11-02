@@ -138,6 +138,12 @@ ul.w li::before{border-left-color:#fff}
             font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;
             letter-spacing:.02em;align-self:flex-start;margin-top:4px}
 .result-tag.accent{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff}
+
+/* ── Блокировка иконки Яндекс Браузера на фотографиях ── */
+.ph{position:relative;background-repeat:no-repeat;-webkit-user-drag:none;user-select:none}
+.ph::after{content:'';position:absolute;inset:0;z-index:2}
+[style*="url(photos/"]{position:relative;-webkit-user-drag:none;user-select:none}
+[style*="url(photos/"]::after{content:'';position:absolute;inset:0;z-index:2}
 </style>
 </head>
 <body>
@@ -1050,6 +1056,15 @@ ul.w li::before{border-left-color:#fff}
   window.addEventListener('afterprint',fit);
   fit(); window.addEventListener('resize',fit);
 })();
+</script>
+<script>
+document.querySelectorAll('img').forEach(i=>{const d=document.createElement('div');
+d.className=(i.className+' ph').trim();d.style.cssText=i.style.cssText;
+d.style.backgroundImage=`url("${i.getAttribute('src')}")`;
+d.style.backgroundSize=getComputedStyle(i).objectFit==='contain'?'contain':'cover';
+d.style.backgroundPosition=getComputedStyle(i).objectPosition;
+const r=i.getBoundingClientRect();if(!d.style.width)d.style.width=r.width+'px';if(!d.style.height)d.style.height=r.height+'px';
+i.replaceWith(d);});
 </script>
 </body>
 </html>
