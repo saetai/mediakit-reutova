@@ -1042,11 +1042,14 @@ ul.w li::before{border-left-color:#fff}
 
   <!-- Правая часть: фигура + изумрудный glow -->
   <div style="position:absolute;left:1100px;top:0;width:820px;height:1080px">
-    <div style="position:absolute;inset:0;background:radial-gradient(closest-side,rgba(46,125,107,.3),transparent) center 38% / 620px 760px no-repeat"></div>
+    <!-- glow за верхней частью -->
+    <div style="position:absolute;inset:0;background:radial-gradient(closest-side,rgba(46,125,107,.35),transparent) center 32% / 700px 800px no-repeat"></div>
+    <!-- светлый хайлайт позади ног чтобы тёмные брюки были видны -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 480px 500px at 50% 82%,rgba(70,140,120,.22),transparent)"></div>
     <div style="position:absolute;inset:0;
-      background:url(photos/speaker-cutout-7127.png) center -20px/960px auto no-repeat;
-      -webkit-mask-image:linear-gradient(to bottom,black 94%,transparent 100%);
-      mask-image:linear-gradient(to bottom,black 94%,transparent 100%)"></div>
+      background:url(photos/speaker-cutout-7127.png) center 90px/1250px auto no-repeat;
+      -webkit-mask-image:linear-gradient(to bottom,black 88%,transparent 100%);
+      mask-image:linear-gradient(to bottom,black 88%,transparent 100%)"></div>
   </div>
 
 </div></div>
