@@ -418,46 +418,55 @@ ul.w li::before{border-left-color:#fff}
 
 <!-- ═════════ 5б · ЭКСПЕРТИЗА (блоки 3–5) ═════════ -->
 <div class="slide-frame"><div class="slide bg-dark is-dark">
-  <div class="pad" style="gap:24px">
+  <div class="pad" style="flex-direction:row;gap:44px">
 
-    <div>
-      <div class="h1 h1-alt" style="margin-bottom:6px;font-size:54px">Экспертиза и<br><span class="g">компетенции</span></div>
-      <div style="font-size:26px;color:rgba(255,255,255,.5)">Продолжение — блоки 3–5</div>
+    <!-- Левая: заголовок + 3 блока -->
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <div class="h1 h1-alt" style="margin-bottom:0;font-size:50px">Экспертиза и<br><span class="g">компетенции</span></div>
+
+      <div style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center">
+
+        <div class="exp-card dark" style="padding:20px 28px">
+          <div class="exp-title white" style="font-size:28px">3. Оплата в Китай без зависших платежей</div>
+          <ul class="tri" style="font-size:24px;display:flex;flex-direction:column;gap:7px">
+            <li>Подбор банка с рабочей корреспондентской сетью; правильное назначение платежа</li>
+            <li>Подбор и проверка платёжного агента</li>
+            <li>Консультация по открытию торгового дома в Китае; возврат НДС при экспорте</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:20px">Результат: работающий маршрут оплаты с минимальными рисками зависания</div>
+        </div>
+
+        <div class="exp-card dark" style="padding:20px 28px">
+          <div class="exp-title white" style="font-size:28px">4. Лучшая цена без потери качества</div>
+          <ul class="tri" style="font-size:24px;display:flex;flex-direction:column;gap:7px">
+            <li>Анализ рынка; запрос полной таблицы цен по объёмам; рычаги: объём, сроки, Incoterms</li>
+            <li>Проверка качества после снижения цены; работа с первыми лицами заводов</li>
+            <li>Юридическая защита: договор, штрафы, форс-мажор, судебный механизм</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:20px">Результат: лучшая цена при сохранении качества и защита от рисков</div>
+        </div>
+
+        <div class="exp-card dark" style="padding:20px 28px">
+          <div class="exp-title white" style="font-size:28px">5. Сертификация и маркировка товаров из Китая</div>
+          <ul class="tri" style="font-size:24px;display:flex;flex-direction:column;gap:7px">
+            <li>Определение кода ТН ВЭД; декларация vs сертификат соответствия</li>
+            <li>Сбор документов от поставщика; маркировка ЕАС, «Честный знак»</li>
+            <li>Подготовка к изменениям 2027 года</li>
+          </ul>
+          <div class="result-tag accent" style="font-size:20px">Результат: корректные документы, отсутствие блокировки груза</div>
+        </div>
+
+      </div>
     </div>
 
-    <div style="flex:1;display:flex;flex-direction:column;gap:18px;justify-content:center">
-
-      <div class="exp-card dark" style="padding:26px 32px">
-        <div class="exp-title white" style="font-size:30px">3. Оплата в Китай без зависших платежей</div>
-        <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
-          <li>Подбор банка с рабочей корреспондентской сетью; правильное назначение платежа</li>
-          <li>Подбор и проверка платёжного агента</li>
-          <li>Консультация по открытию торгового дома в Китае; возврат НДС при экспорте</li>
-        </ul>
-        <div class="result-tag accent" style="font-size:22px">Результат: работающий маршрут оплаты с минимальными рисками зависания</div>
-      </div>
-
-      <div class="exp-card dark" style="padding:26px 32px">
-        <div class="exp-title white" style="font-size:30px">4. Лучшая цена без потери качества</div>
-        <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
-          <li>Анализ рынка; запрос полной таблицы цен по объёмам; рычаги: объём, сроки, Incoterms</li>
-          <li>Проверка качества после снижения цены; работа с первыми лицами заводов</li>
-          <li>Юридическая защита: договор, штрафы, форс-мажор, судебный механизм</li>
-        </ul>
-        <div class="result-tag accent" style="font-size:22px">Результат: лучшая цена при сохранении качества и защита от рисков</div>
-      </div>
-
-      <div class="exp-card dark" style="padding:26px 32px">
-        <div class="exp-title white" style="font-size:30px">5. Сертификация и маркировка товаров из Китая</div>
-        <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
-          <li>Определение кода ТН ВЭД; декларация vs сертификат соответствия</li>
-          <li>Сбор документов от поставщика; маркировка ЕАС, «Честный знак»</li>
-          <li>Подготовка к изменениям 2027 года</li>
-        </ul>
-        <div class="result-tag accent" style="font-size:22px">Результат: корректные документы, отсутствие блокировки груза</div>
-      </div>
-
+    <!-- Правая: 2 фото -->
+    <div style="width:380px;flex-shrink:0;display:flex;flex-direction:column;gap:16px">
+      <div style="flex:1;border-radius:20px;overflow:hidden;
+        background:url(photos/expo-partners.jpg) center 40%/cover no-repeat"></div>
+      <div style="flex:1;border-radius:20px;overflow:hidden;
+        background:url(photos/factory-visit.jpg) center 30%/cover no-repeat"></div>
     </div>
+
   </div>
 </div></div>
 
