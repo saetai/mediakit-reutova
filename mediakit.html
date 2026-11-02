@@ -139,6 +139,10 @@ ul.w li::before{border-left-color:#fff}
             letter-spacing:.02em;align-self:flex-start;margin-top:4px}
 .result-tag.accent{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff}
 
+/* ── Светлая карточка внутри тёмного слайда: принудительно тёмный текст ── */
+.tri-n li::before{border-left-color:var(--navy)!important}
+.tri-n li{color:var(--graphite)!important}
+
 /* ── Блокировка иконки Яндекс Браузера на фотографиях ── */
 .ph{position:relative;background-repeat:no-repeat;-webkit-user-drag:none;user-select:none}
 .ph::after{content:'';position:absolute;inset:0;z-index:2}
@@ -520,12 +524,12 @@ ul.w li::before{border-left-color:#fff}
         </ul>
       </div>
 
-      <!-- Результат — выделенный тил-аккент -->
-      <div class="case-card dark" style="background:rgba(127,175,163,.22);border:1.5px solid rgba(127,175,163,.55);box-shadow:0 0 40px rgba(127,175,163,.12)">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:#7FAFA3;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">▶ Результат</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:72px;line-height:1;color:#fff;margin:4px 0 8px">×14</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:28px;color:#fff;margin-bottom:14px">за 5 лет · 1 → 40 SKU</div>
-        <ul class="tri" style="font-size:21px;display:flex;flex-direction:column;gap:8px;color:rgba(255,255,255,.9)">
+      <!-- Результат — белый выделяющийся блок -->
+      <div class="case-card" style="background:#fff;border:none;box-shadow:0 0 64px rgba(127,175,163,.55),0 12px 40px rgba(0,0,0,.3)">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:#0B3B34;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px">▶ Результат</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:72px;line-height:1;color:#0B3B34;margin:4px 0 8px">×14</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:28px;color:#0B3B34;margin-bottom:14px">за 5 лет · 1 → 40 SKU</div>
+        <ul class="tri tri-n" style="font-size:21px;display:flex;flex-direction:column;gap:8px;color:#3B3B38">
           <li>Масштабирование продуктовой линейки с 1 до 40 позиций</li>
           <li>Полностью автономная система: бренд, качество, логистика под контролем клиента</li>
           <li>Расширение географии: Вьетнам, Армения, Таиланд</li>
@@ -631,15 +635,16 @@ ul.w li::before{border-left-color:#fff}
     </div>
 
     <div style="width:700px;flex-shrink:0;display:flex;flex-direction:column;gap:16px">
-      <!-- Табличка (горизонтальная ~3:2) — во всю ширину, contain чтобы текст читался -->
-      <div style="height:220px;flex-shrink:0;border-radius:24px;overflow:hidden;
-        background:url(photos/k_IMG_6713.JPG) center/contain no-repeat;
-        background-color:rgba(255,255,255,.06)"></div>
-      <!-- Два фото снизу: открытие скважины + бурение -->
+      <!-- Три фото сверху: дети у скважины, бурение, основание скважины -->
       <div style="display:flex;gap:16px;flex:1">
         <div style="flex:1;border-radius:24px;overflow:hidden;background:url(photos/k_IMG_5926.JPG) center top/cover no-repeat"></div>
         <div style="flex:1;border-radius:24px;overflow:hidden;background:url(photos/k_IMG_4188.JPG) center 25%/cover no-repeat"></div>
+        <div style="flex:1;border-radius:24px;overflow:hidden;background:url(photos/k_IMG_4485.jpg) center 20%/cover no-repeat"></div>
       </div>
+      <!-- Сертификат снизу: contain, не тянуть -->
+      <div style="height:200px;flex-shrink:0;border-radius:24px;overflow:hidden;
+        background:url(photos/k_IMG_6713.JPG) center/contain no-repeat;
+        background-color:rgba(255,255,255,.08)"></div>
     </div>
 
   </div>
@@ -650,42 +655,42 @@ ul.w li::before{border-left-color:#fff}
   <div class="pad" style="gap:20px">
 
     <div>
-      <div style="font-size:26px;color:var(--muted);margin-bottom:14px">Выступление для студентов и вузов · 30 мин (20 + Q&amp;A 10)</div>
-      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:54px;line-height:1.05;color:var(--navy)">«Китай как карьерный трек:<br>от студенческого гранта<br>до владения бизнесом»</div>
+      <div style="font-size:28px;color:var(--muted);margin-bottom:16px">Выступление для студентов и вузов · 30 мин (20 + Q&amp;A 10)</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:58px;line-height:1.05;color:var(--navy)">«Китай как карьерный трек:<br>от студенческого гранта до владения бизнесом»</div>
     </div>
 
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch">
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start">
 
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em">Образовательный трек</div>
-        <ul class="tri" style="font-size:27px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:26px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em">Образовательный трек</div>
+        <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:12px">
           <li>Гранты КНР (CSC), Институт Конфуция, региональные программы</li>
           <li>Критерии отбора и чек-лист абитуриента</li>
           <li>ROI обучения: нетворкинг и стажировки в китайских корпорациях</li>
         </ul>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-top:8px">Карьерный трек</div>
-        <ul class="tri" style="font-size:27px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:26px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-top:4px">Карьерный трек</div>
+        <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:12px">
           <li>Востребованные компетенции: ВЭД, логистика, IT</li>
           <li>HR-платформы КНР vs LinkedIn</li>
           <li>Рабочая виза Z — как не потерять статус</li>
         </ul>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em">Культурный трек</div>
-        <ul class="tri" style="font-size:27px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:26px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em">Культурный трек</div>
+        <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:12px">
           <li>Концепция «лица»: как добиться цели без прямого отказа</li>
           <li>Тактика изматывания в переговорах</li>
           <li>Путь к HSK 6 — личный опыт с нуля</li>
         </ul>
-        <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
-          <div class="card" style="padding:22px 28px">
-            <div class="label" style="margin-bottom:8px">Личный опыт</div>
-            <div style="font-size:25px;line-height:1.35">15+ лет в Китае · HSK 6 с нуля · 100+ клиентов из 4 стран с первой выставки</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
+          <div class="card" style="padding:24px 32px">
+            <div class="label" style="margin-bottom:10px">Личный опыт</div>
+            <div style="font-size:28px;line-height:1.35">15+ лет в Китае · HSK 6 с нуля · 100+ клиентов из 4 стран с первой выставки</div>
           </div>
-          <div class="card" style="padding:22px 28px">
-            <div class="label" style="margin-bottom:8px">Аудитория</div>
-            <div style="font-size:25px;line-height:1.35">Студенты, которые хотят строить карьеру или бизнес с Китаем</div>
+          <div class="card" style="padding:24px 32px">
+            <div class="label" style="margin-bottom:10px">Аудитория</div>
+            <div style="font-size:28px;line-height:1.35">Студенты, которые хотят строить карьеру или бизнес с Китаем</div>
           </div>
         </div>
       </div>
@@ -736,16 +741,16 @@ ul.w li::before{border-left-color:#fff}
 <!-- ═════════ 11 · ТЕМА 1: ПОИСК ПОСТАВЩИКА + ТЕМА 2: КОНТРАКТНОЕ ПРОИЗВОДСТВО ═════════ -->
 <div class="slide-frame"><div class="slide bg-l2">
   <div class="pad" style="gap:20px">
-    <div class="h1 h1-alt" style="margin-bottom:0;font-size:52px">Темы выступлений</div>
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0;align-items:stretch">
+    <div class="h1 h1-alt" style="margin-bottom:0;font-size:56px">Темы выступлений</div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;min-height:0;align-items:stretch">
 
       <!-- Тема 1 -->
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Поиск поставщика: как найти, проверить и не потерять деньги»</div>
-        <div style="font-size:22px;color:var(--muted)">30–40 мин · предприниматели, открывающие новые ниши</div>
-        <div class="case-card" style="padding:22px 28px;gap:10px">
-          <div class="case-label" style="font-size:22px">5 работающих каналов поиска</div>
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--navy);line-height:1.15">«Поиск поставщика: как найти, проверить и не потерять деньги»</div>
+        <div style="font-size:26px;color:var(--muted)">30–40 мин · предприниматели, открывающие новые ниши</div>
+        <div class="case-card" style="padding:24px 30px;gap:12px">
+          <div class="case-label" style="font-size:26px">5 работающих каналов поиска</div>
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:10px">
             <li>Alibaba, 1688, Made-in-China, Global Sources</li>
             <li>Государственные реестры КНР (gsxt.gov.cn)</li>
             <li>Таможенный реестр: credit.customs.gov.cn</li>
@@ -753,9 +758,9 @@ ul.w li::before{border-left-color:#fff}
             <li>Профильные выставки: Canton Fair и отраслевые</li>
           </ul>
         </div>
-        <div class="case-card" style="padding:22px 28px;gap:10px">
-          <div class="case-label" style="font-size:22px">Проверка контрагента</div>
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
+        <div class="case-card" style="padding:24px 30px;gap:12px">
+          <div class="case-label" style="font-size:26px">Проверка контрагента</div>
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:10px">
             <li>Государственные и коммерческие платформы</li>
             <li>Личный визит на производство при первой отгрузке</li>
           </ul>
@@ -763,11 +768,11 @@ ul.w li::before{border-left-color:#fff}
       </div>
 
       <!-- Тема 2 -->
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Контрактное производство на фабриках Китая. Полный цикл работ»</div>
-        <div style="font-size:22px;color:var(--muted)">Формат: таймлайн полного цикла поставки</div>
-        <div class="case-card" style="padding:22px 28px;gap:10px;flex:1">
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--navy);line-height:1.15">«Контрактное производство на фабриках Китая. Полный цикл работ»</div>
+        <div style="font-size:26px;color:var(--muted)">Формат: таймлайн полного цикла поставки</div>
+        <div class="case-card" style="padding:24px 30px;gap:12px;flex:1">
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:12px">
             <li>Запрос по ТЗ от клиента → поиск поставщика → проверка</li>
             <li>Запрос цен, образцов; выбор 2 альтернативных площадок</li>
             <li>Договор: сроки, штрафы, качество, суд (ТПП/консульство)</li>
@@ -786,24 +791,24 @@ ul.w li::before{border-left-color:#fff}
 <!-- ═════════ 12 · ТЕМЫ 3 И 4: ОПЛАТА + СЕРТИФИКАЦИЯ ═════════ -->
 <div class="slide-frame"><div class="slide bg-l3">
   <div class="pad" style="gap:20px">
-    <div class="h1 h1-alt" style="margin-bottom:0;font-size:52px">Темы выступлений</div>
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0;align-items:stretch">
+    <div class="h1 h1-alt" style="margin-bottom:0;font-size:56px">Темы выступлений</div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;min-height:0;align-items:stretch">
 
       <!-- Тема 3: Оплата -->
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Оплата за товар в Китай: SWIFT, альтернативные схемы и платёжные агенты "за" и "против"»</div>
-        <div style="font-size:22px;color:var(--muted)">30 мин · предприниматели, импортёры</div>
-        <div class="case-card" style="padding:20px 26px;gap:10px">
-          <div class="case-label" style="font-size:22px">SWIFT и прямые банковские платежи</div>
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--navy);line-height:1.15">«Оплата за товар в Китай: SWIFT, альтернативные схемы и платёжные агенты "за" и "против"»</div>
+        <div style="font-size:26px;color:var(--muted)">30 мин · предприниматели, импортёры</div>
+        <div class="case-card" style="padding:24px 30px;gap:12px">
+          <div class="case-label" style="font-size:26px">SWIFT и прямые банковские платежи</div>
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:10px">
             <li>Какие банки проводят платежи с Китаем</li>
             <li>Как подготовить документы, чтобы платёж не завис</li>
             <li>Как описать назначение платежа</li>
           </ul>
         </div>
-        <div class="case-card" style="padding:20px 26px;gap:10px">
-          <div class="case-label" style="font-size:22px">Альтернативные схемы и торговые дома</div>
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:8px">
+        <div class="case-card" style="padding:24px 30px;gap:12px">
+          <div class="case-label" style="font-size:26px">Альтернативные схемы и торговые дома</div>
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:10px">
             <li>Как проверить платёжного агента до первого перевода</li>
             <li>Когда стоит открывать торговый дом в Китае</li>
             <li>Возврат НДС при экспорте через торговый дом</li>
@@ -812,11 +817,11 @@ ul.w li::before{border-left-color:#fff}
       </div>
 
       <!-- Тема 4: Сертификация -->
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Сертификация и маркировка для поставок из Китая. Что нужно знать для отгрузки»</div>
-        <div style="font-size:22px;color:var(--muted)">30 мин · импортёры, байеры ритейл-сетей</div>
-        <div class="case-card" style="padding:20px 26px;gap:10px;flex:1">
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--navy);line-height:1.15">«Сертификация и маркировка для поставок из Китая. Что нужно знать для отгрузки»</div>
+        <div style="font-size:26px;color:var(--muted)">30 мин · импортёры, байеры ритейл-сетей</div>
+        <div class="case-card" style="padding:24px 30px;gap:12px;flex:1">
+          <ul class="tri" style="font-size:30px;display:flex;flex-direction:column;gap:16px">
             <li><strong>Изменения 2027 года</strong> в сертификации и маркировке — как не потерять деньги</li>
             <li><strong>Документы от поставщика</strong> для оформления сертификации — что чаще всего забывают</li>
             <li><strong>Маркировка ЕАС</strong> vs «Честный знак» — разбор соотношения</li>
@@ -832,15 +837,15 @@ ul.w li::before{border-left-color:#fff}
 <!-- ═════════ 13 · ТЕМЫ 5, 6, 7 ═════════ -->
 <div class="slide-frame"><div class="slide bg-l4">
   <div class="pad" style="gap:20px">
-    <div class="h1 h1-alt" style="margin-bottom:0;font-size:52px">Темы выступлений</div>
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;min-height:0;align-items:stretch">
+    <div class="h1 h1-alt" style="margin-bottom:0;font-size:56px">Темы выступлений</div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;min-height:0;align-items:stretch">
 
       <!-- Тема 5 -->
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:var(--navy);line-height:1.15">«Переговоры с китайцами: правила, которые реально работают»</div>
-        <div style="font-size:20px;color:var(--muted)">Закупщики, владельцы бизнеса, менеджеры по ВЭД</div>
-        <div class="case-card" style="padding:20px 26px;gap:10px;flex:1">
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Переговоры с китайцами: правила, которые реально работают»</div>
+        <div style="font-size:24px;color:var(--muted)">Закупщики, владельцы бизнеса, менеджеры по ВЭД</div>
+        <div class="case-card" style="padding:22px 28px;gap:12px;flex:1">
+          <ul class="tri" style="font-size:28px;display:flex;flex-direction:column;gap:14px">
             <li>Менталитет: почему прямой вопрос — плохой вопрос</li>
             <li>Как вести переговоры с первыми лицами заводов</li>
             <li>Что никогда нельзя говорить китайскому поставщику</li>
@@ -851,10 +856,10 @@ ul.w li::before{border-left-color:#fff}
 
       <!-- Тема 6 -->
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:var(--navy);line-height:1.15">«Контрактное производство под СТМ в Китае: от идеи до полки»</div>
-        <div style="font-size:20px;color:var(--muted)">Владельцы брендов, ритейлеры, производители</div>
-        <div class="case-card" style="padding:20px 26px;gap:10px;flex:1">
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Контрактное производство под СТМ в Китае: от идеи до полки»</div>
+        <div style="font-size:24px;color:var(--muted)">Владельцы брендов, ритейлеры, производители</div>
+        <div class="case-card" style="padding:22px 28px;gap:12px;flex:1">
+          <ul class="tri" style="font-size:28px;display:flex;flex-direction:column;gap:14px">
             <li>Как найти фабрику, готовую работать под вашим брендом</li>
             <li>Разработка рецептуры, упаковки, сертификации</li>
             <li>Минимальные объёмы и реальные сроки</li>
@@ -865,10 +870,10 @@ ul.w li::before{border-left-color:#fff}
 
       <!-- Тема 7 -->
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:var(--navy);line-height:1.15">«Как получить лучшие условия от китайского поставщика»</div>
-        <div style="font-size:20px;color:var(--muted)">Бизнес-аудитория, байеры, категорийные менеджеры</div>
-        <div class="case-card" style="padding:20px 26px;gap:10px;flex:1">
-          <ul class="tri" style="font-size:26px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:var(--navy);line-height:1.15">«Как получить лучшие условия от китайского поставщика»</div>
+        <div style="font-size:24px;color:var(--muted)">Бизнес-аудитория, байеры, категорийные менеджеры</div>
+        <div class="case-card" style="padding:22px 28px;gap:12px;flex:1">
+          <ul class="tri" style="font-size:28px;display:flex;flex-direction:column;gap:12px">
             <li>Что нельзя говорить и делать на переговорах — особенности менталитета</li>
             <li>Какие улучшения условий, кроме цены, можно получить</li>
             <li>Как объём и сроки поставки влияют на стоимость</li>
