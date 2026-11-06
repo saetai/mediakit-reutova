@@ -166,18 +166,18 @@ ul.w li::before{border-left-color:#fff}
   <div style="position:absolute;left:1581px;top:155px;width:388px;height:590px;border-radius:24px;overflow:hidden;filter:grayscale(1) brightness(.85) contrast(1.05);z-index:1;background:url(photos/cover-temple.jpg) center 15%/cover no-repeat"></div>
 
   <!-- Слой 2: мягкое светлое пятно за фигурой — отделяет тёмный пиджак от синего фона -->
-  <div style="position:absolute;left:50%;transform:translateX(-50%);top:60px;
-              width:940px;height:940px;
+  <div style="position:absolute;left:50%;transform:translateX(-50%);top:30px;
+              width:1080px;height:1080px;
               background:radial-gradient(closest-side,rgba(46,125,107,.38),transparent);
               z-index:2;pointer-events:none"></div>
 
   <!-- Слой 3: портрет по бёдра, маска снизу растворяется в фон, свечение по контуру -->
-  <div style="position:absolute;left:50%;transform:translateX(-50%);top:80px;
-              width:680px;height:1000px;
+  <div style="position:absolute;left:50%;transform:translateX(-50%);top:70px;
+              width:820px;height:1010px;
               background:url(photos/cover-cutout-6616.png) center top/contain no-repeat;
               z-index:3;pointer-events:none;
-              -webkit-mask-image:linear-gradient(to bottom,black 72%,transparent 100%);
-              mask-image:linear-gradient(to bottom,black 72%,transparent 100%);
+              -webkit-mask-image:linear-gradient(to bottom,black 74%,transparent 100%);
+              mask-image:linear-gradient(to bottom,black 74%,transparent 100%);
               filter:drop-shadow(0 0 28px rgba(46,125,107,.5))"></div>
 
   <!-- Слой 4: градиент снизу -->
@@ -908,121 +908,113 @@ ul.w li::before{border-left-color:#fff}
   </div>
 </div></div>
 
-<!-- ═════════ 14 · ПРИЗНАНИЕ И БЛАГОДАРНОСТИ ═════════ -->
+<!-- ═════════ 14 · ПРИЗНАНИЕ И НАГРАДЫ (WorldFood) ═════════ -->
 <div class="slide-frame"><div class="slide bg-dark is-dark">
-  <div class="pad" style="flex-direction:row;gap:52px;align-items:stretch;padding-top:64px;padding-bottom:64px">
+  <div class="pad" style="flex-direction:column;gap:30px;padding-top:56px;padding-bottom:56px">
 
-    <!-- ── ЛЕВАЯ: заголовок + фото + «от кого и когда» + ТАКЖЕ ── -->
-    <div style="width:420px;flex-shrink:0;display:flex;flex-direction:column">
-      <div class="h1 h1-alt" style="margin-bottom:18px;font-size:48px">Признание<br><span class="g">и благодарности</span></div>
+    <div class="h1 h1-alt" style="margin-bottom:0;font-size:52px">Признание <span class="g">и награды</span></div>
 
-      <!-- Фото: медаль WorldFood 2026 -->
-      <div style="height:430px;flex-shrink:0;border-radius:20px;overflow:hidden;
-        box-shadow:0 16px 40px rgba(0,0,0,.55);
-        background:url(photos/letter-1.jpg) center/contain no-repeat;
-        background-color:#fff"></div>
+    <!-- 4 документа прямостоящие в ряд -->
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:30px">
 
-      <!-- От кого и когда -->
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.22)">
-        <div style="font-weight:700;font-size:20px;color:#fff;margin-bottom:4px">WorldFood Moscow · Москва</div>
-        <div style="font-size:18px;color:rgba(255,255,255,.45);margin-bottom:6px">2026</div>
-        <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.4">Золотая медаль «Продукт года» — номинация «Плодоовощная продукция»</div>
-      </div>
-
-      <!-- ТАКЖЕ -->
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:8px">Также</div>
-        <div style="font-size:17px;color:rgba(255,255,255,.6);line-height:1.5;display:flex;flex-direction:column;gap:4px">
-          <div>▸ Сертификат HSK 6 — китайский язык, уровень С2 (2014)</div>
-          <div>▸ Сертификат HACCP</div>
+      <!-- Медаль WorldFood 2026 -->
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:14px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/letter-1.jpg) center/contain no-repeat"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:12px">
+          <div style="font-weight:700;font-size:21px;color:#fff;margin-bottom:4px">WorldFood Moscow · 2026</div>
+          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.4">Золотая медаль «Продукт года» — номинация «Плодоовощная продукция»</div>
         </div>
       </div>
+
+      <!-- Диплом WorldFood 2026 -->
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:14px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/letter-2.jpg) center/contain no-repeat"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:12px">
+          <div style="font-weight:700;font-size:21px;color:#fff;margin-bottom:4px">WorldFood Moscow · 2026</div>
+          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.4">Диплом «Продукт года» — номинация «Плодоовощная продукция»</div>
+        </div>
+      </div>
+
+      <!-- Сертификат WorldFood 2019 -->
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:14px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/cert-wf2019.png) center/contain no-repeat"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:12px">
+          <div style="font-weight:700;font-size:21px;color:#fff;margin-bottom:4px">WorldFood Moscow · 2019</div>
+          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.4">Сертификат участника выставки · Dalian Jia Wei Cheng</div>
+        </div>
+      </div>
+
+      <!-- Сертификат WorldFood 2021 -->
+      <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:14px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/cert-wf2021.png) center/contain no-repeat"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:12px">
+          <div style="font-weight:700;font-size:21px;color:#fff;margin-bottom:4px">WorldFood Moscow · 2021</div>
+          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.4">Сертификат участника выставки · Dalian Jia Wei Cheng</div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</div></div>
 
-    <!-- ── ПРАВАЯ: веер 4 документов + подписи ── -->
-    <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:28px">
+<!-- ═════════ 15 · СЕРТИФИКАТЫ И КВАЛИФИКАЦИЯ ═════════ -->
+<div class="slide-frame"><div class="slide bg-dark is-dark">
+  <div class="pad" style="flex-direction:column;gap:30px;padding-top:56px;padding-bottom:56px">
 
-      <!-- Веер — документы крупнее -->
-      <div style="display:flex;align-items:flex-end;justify-content:center;padding:20px 0 8px">
+    <div class="h1 h1-alt" style="margin-bottom:0;font-size:52px">Сертификаты <span class="g">и квалификация</span></div>
 
-        <!-- Диплом WorldFood 2026 -->
-        <div style="width:220px;flex-shrink:0;position:relative;transform:rotate(-6deg) translateY(22px);margin-right:-36px;z-index:1">
-          <div style="height:320px;border-radius:16px;padding:8px;box-sizing:border-box;
-            background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.38)">
-            <div style="width:100%;height:100%;background:url(photos/letter-2.jpg) center/contain no-repeat"></div>
-          </div>
+    <!-- 3 документа прямостоящие в ряд, крупнее -->
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:0 60px">
+
+      <!-- ISO 9001 -->
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:16px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/cert-iso9001.png) center/contain no-repeat"></div>
         </div>
-
-        <!-- Сертификат WorldFood 2019 -->
-        <div style="width:220px;flex-shrink:0;position:relative;transform:rotate(-2.5deg) translateY(8px);margin-right:-36px;z-index:2">
-          <div style="height:320px;border-radius:16px;padding:8px;box-sizing:border-box;
-            background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.38)">
-            <div style="width:100%;height:100%;background:url(photos/cert-wf2019.png) center top/contain no-repeat"></div>
-          </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
+          <div style="font-weight:700;font-size:23px;color:#fff;margin-bottom:5px">ISO 9001</div>
+          <div style="font-size:19px;color:rgba(255,255,255,.8);line-height:1.4">Международный сертификат системы менеджмента качества</div>
         </div>
-
-        <!-- Сертификат WorldFood 2021 -->
-        <div style="width:220px;flex-shrink:0;position:relative;transform:rotate(1deg) translateY(0px);margin-right:-36px;z-index:3">
-          <div style="height:320px;border-radius:16px;padding:8px;box-sizing:border-box;
-            background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.38)">
-            <div style="width:100%;height:100%;background:url(photos/cert-wf2021.png) center top/contain no-repeat"></div>
-          </div>
-        </div>
-
-        <!-- ISO 9001 -->
-        <div style="width:220px;flex-shrink:0;position:relative;transform:rotate(3.5deg) translateY(8px);margin-right:-36px;z-index:2">
-          <div style="height:320px;border-radius:16px;padding:8px;box-sizing:border-box;
-            background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.38)">
-            <div style="width:100%;height:100%;background:url(photos/cert-iso9001.png) center/contain no-repeat"></div>
-          </div>
-        </div>
-
-        <!-- HSK 6 -->
-        <div style="width:220px;flex-shrink:0;position:relative;transform:rotate(7deg) translateY(22px);z-index:1">
-          <div style="height:320px;border-radius:16px;padding:8px;box-sizing:border-box;
-            background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.38)">
-            <div style="width:100%;height:100%;background:url(photos/cert-hsk6.jpg) center top/contain no-repeat"></div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Подписи 4 колонки — укрупнённые -->
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
-
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
-          <div style="font-weight:700;font-size:20px;color:#fff;margin-bottom:5px">WorldFood Moscow</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.4);margin-bottom:8px">2026</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.45">Золотая медаль и диплом «Продукт года», номинация «Плодоовощная продукция»</div>
+      <!-- HACCP -->
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:16px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/cert-haccp.png) center/contain no-repeat"></div>
         </div>
-
         <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
-          <div style="font-weight:700;font-size:20px;color:#fff;margin-bottom:5px">WorldFood Moscow</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.4);margin-bottom:8px">2019</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.45">Сертификат участника выставки · Dalian Jia Wei Cheng</div>
+          <div style="font-weight:700;font-size:23px;color:#fff;margin-bottom:5px">HACCP</div>
+          <div style="font-size:19px;color:rgba(255,255,255,.8);line-height:1.4">Система управления безопасностью пищевой продукции</div>
         </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
-          <div style="font-weight:700;font-size:20px;color:#fff;margin-bottom:5px">WorldFood Moscow</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.4);margin-bottom:8px">2021</div>
-          <div style="font-size:18px;color:rgba(255,255,255,.8);line-height:1.45">Сертификат участника выставки · Dalian Jia Wei Cheng</div>
-        </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
-          <div style="font-weight:700;font-size:18px;color:#fff;margin-bottom:5px">ISO 9001 / HACCP</div>
-          <div style="font-size:16px;color:rgba(255,255,255,.4);margin-bottom:8px">Международные</div>
-          <div style="font-size:16px;color:rgba(255,255,255,.8);line-height:1.45">Сертификаты системы менеджмента качества</div>
-        </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
-          <div style="font-weight:700;font-size:18px;color:#fff;margin-bottom:5px">HSK 6 · Hanban</div>
-          <div style="font-size:16px;color:rgba(255,255,255,.4);margin-bottom:8px">2014</div>
-          <div style="font-size:16px;color:rgba(255,255,255,.8);line-height:1.45">Китайский язык уровень С2 — высший сертификат</div>
-        </div>
-
       </div>
+
+      <!-- HSK 6 -->
+      <div style="display:flex;flex-direction:column;gap:18px;min-height:0">
+        <div style="flex:1;min-height:0;border-radius:16px;padding:16px;box-sizing:border-box;
+          background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+          <div style="width:100%;height:100%;background:url(photos/cert-hsk6.jpg) center/contain no-repeat"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:14px">
+          <div style="font-weight:700;font-size:23px;color:#fff;margin-bottom:5px">HSK 6 · Hanban · 2014</div>
+          <div style="font-size:19px;color:rgba(255,255,255,.8);line-height:1.4">Китайский язык, высший уровень С2 — экзамен Chinese Proficiency Test</div>
+        </div>
+      </div>
+
     </div>
-
   </div>
 </div></div>
 
@@ -1036,25 +1028,26 @@ ul.w li::before{border-left-color:#fff}
   <div style="position:absolute;left:370px;top:182px;width:420px;text-align:center;
     font-family:'Inter',sans-serif;font-weight:400;font-size:32px;color:rgba(255,255,255,.45)">Instagram</div>
 
-  <!-- QR — 420×420, центр 580px -->
-  <div style="position:absolute;left:370px;top:230px;width:420px;height:420px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:28px;
-    padding:18px;box-sizing:border-box">
-    <div style="width:100%;height:100%;background:url(photos/qr-instagram.png) center/contain no-repeat;
-      image-rendering:pixelated"></div>
-  </div>
-
-  <!-- @reutova_china — центр 580px -->
-  <div style="position:absolute;left:370px;top:664px;width:420px;text-align:center;
-    font-family:'Montserrat',sans-serif;font-weight:600;font-size:26px;color:rgba(255,255,255,.4)">@reutova_china</div>
+  <!-- QR + ник — кликабельно на профиль, центр 580px -->
+  <a href="https://instagram.com/reutova_china" target="_blank"
+     style="position:absolute;left:370px;top:230px;width:420px;height:460px;text-decoration:none;color:inherit;display:block">
+    <div style="width:420px;height:420px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:28px;
+      padding:18px;box-sizing:border-box">
+      <div style="width:100%;height:100%;background:url(photos/qr-instagram.png) center/contain no-repeat;
+        image-rendering:pixelated"></div>
+    </div>
+    <div style="width:420px;text-align:center;margin-top:14px;
+      font-family:'Montserrat',sans-serif;font-weight:600;font-size:26px;color:rgba(255,255,255,.4)">@reutova_china</div>
+  </a>
 
   <!-- Кнопки — столбец, центр 580px -->
   <div style="position:absolute;left:360px;top:724px;display:flex;flex-direction:column;align-items:center;gap:0">
-    <a href="tel:+861300941592" style="text-decoration:none;color:inherit;display:block;margin-bottom:12px">
+    <a href="https://wa.me/8613009415929" target="_blank" style="text-decoration:none;color:inherit;display:block;margin-bottom:12px">
       <div class="pill" style="border-radius:28px;min-width:440px;justify-content:center">+86 130 0941 5929</div>
     </a>
     <div style="font-family:'Inter',sans-serif;font-size:20px;color:rgba(255,255,255,.35);
-      text-align:center;margin-bottom:16px">Телефон · WeChat · WhatsApp</div>
+      text-align:center;margin-bottom:16px">WhatsApp · WeChat · Телефон</div>
     <a href="mailto:sales@madeincn.ru" style="text-decoration:none;color:inherit;display:block">
       <div class="pill" style="border-radius:28px;min-width:440px;justify-content:center">sales@madeincn.ru</div>
     </a>
